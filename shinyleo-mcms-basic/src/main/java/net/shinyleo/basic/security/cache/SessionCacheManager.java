@@ -1,5 +1,7 @@
 package net.shinyleo.basic.security.cache;
 
+import com.google.common.collect.Sets;
+import net.shinyleo.basic.util.SpringUtil;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.UnavailableSecurityManagerException;
 import org.apache.shiro.cache.Cache;

@@ -3,6 +3,7 @@ package net.shinyleo.base.util;
 import com.alibaba.fastjson.serializer.SerializeFilter;
 import com.alibaba.fastjson.serializer.SerializerFeature;
 
+
 /**
  * Created by shinyleo on 17/7/20.
  */

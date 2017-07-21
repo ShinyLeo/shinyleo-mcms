@@ -2,6 +2,20 @@ package com.shinyleo.cms.action;
 
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
+import com.shinyleo.basic.biz.IColumnBiz;
+import com.shinyleo.basic.entity.BasicCategoryEntity;
+import com.shinyleo.basic.entity.ColumnEntity;
+import com.shinyleo.cms.biz.IArticleBiz;
+import com.shinyleo.cms.constant.ModelCode;
+import com.shinyleo.cms.constant.e.ColumnTypeEnum;
+import com.shinyleo.cms.entity.ArticleEntity;
+import com.shinyleo.mdiy.biz.IContentModelBiz;
+import com.shinyleo.mdiy.biz.IContentModelFieldBiz;
+import com.shinyleo.mdiy.entity.ContentModelEntity;
+import com.shinyleo.mdiy.entity.ContentModelFieldEntity;
+import com.shinyleo.parser.IParserRegexConstant;
+import com.shinyleo.util.StringUtil;
+import net.shinyleo.basic.util.BasicUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -14,13 +28,15 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.File;
 import java.sql.Timestamp;
 import java.util.*;
+import com.shinyleo.basic.action.BaseAction;
+import com.shinyleo.base.entity.BaseEntity;
 
 /**
  * Created by shinyleo on 17/7/20.
  */
 @Controller
 @RequestMapping("/${managerPath}/cms/article")
-public class ArticleAction extends BaseAction{
+public class ArticleAction extends BaseAction {
 
     /**
      * 业务层的注入
@@ -57,7 +73,7 @@ public class ArticleAction extends BaseAction{
      * @return
      */
     public List<Map.Entry<String, String>> articleType() {
-        Map<String, String> map = getMapByProperties(com.mingsoft.cms.constant.Const.ARTICLE_ATTRIBUTE_RESOURCE);
+        Map<String, String> map = getMapByProperties(com.shinyleo.cms.constant.Const.ARTICLE_ATTRIBUTE_RESOURCE);
         Set<Map.Entry<String, String>> set = map.entrySet();
         List<Map.Entry<String, String>> articleType = new ArrayList<Map.Entry<String, String>>();
         for (Iterator<Map.Entry<String, String>> it = set.iterator(); it.hasNext();) {

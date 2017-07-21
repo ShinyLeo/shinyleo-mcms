@@ -1,5 +1,7 @@
 package net.shinyleo.basic.util;
 
+import com.github.pagehelper.PageHelper;
+import com.github.pagehelper.PageInfo;
 import com.shinyleo.base.constant.e.BaseCookieEnum;
 import com.shinyleo.base.constant.e.BaseEnum;
 import com.shinyleo.base.constant.e.BaseSessionEnum;
@@ -63,7 +65,6 @@ public class BasicUtil {
     /**
      * 获取当前模块对应的appid , appid主要根据用户的请求地址获得
      *
-     * @param request
      *            HttpServletRequest对象
      * @return 返回appId，找不到对应app,返回0
      */
@@ -78,7 +79,6 @@ public class BasicUtil {
     /**
      * 获取当前模块对应的appid , appid主要根据用户的请求地址获得
      *
-     * @param request
      *            HttpServletRequest对象
      * @return 返回appId，找不到对应app,返回0
      */
@@ -93,7 +93,6 @@ public class BasicUtil {
     /**
      * 获取项目路径
      *
-     * @param request
      *            HttpServletRequest对象
      * @return 返回项目路径，例如：http://www.ip.com/projectName 后面没有反斜杠，后面接地址或参数必须加/
      */
@@ -112,7 +111,6 @@ public class BasicUtil {
     /**
      * 获取请求域名，域名不包括http请求协议头
      *
-     * @param request
      *            HttpServletRequest对象
      * @return 返回域名地址
      */
@@ -207,7 +205,6 @@ public class BasicUtil {
     /**
      * 获取整型值
      *
-     * @param request
      *            HttpServletRequest对象
      * @param param
      *            参数名称
@@ -231,7 +228,6 @@ public class BasicUtil {
     /**
      * 获取字符串值
      *
-     * @param request
      *            HttpServletRequest对象
      * @param param
      *            参数名称
@@ -250,7 +246,6 @@ public class BasicUtil {
     /**
      * 获取字符串值
      *
-     * @param request
      *            HttpServletRequest对象
      * @param param
      *            参数名称
@@ -309,7 +304,6 @@ public class BasicUtil {
      * 将请求的request的参数重新组装。主要是将空值的替换成null,因为requestMap空值是"",这样处理有利于外部判断,
      * 同时将获取到的值映射到页面上
      *
-     * @param request
      *            HttpServletRequest对象
      * @return 返回处理过后的数据
      */
@@ -347,7 +341,6 @@ public class BasicUtil {
      * 将请求的request的参数重新组装。主要是将空值的替换成null,因为requestMap空值是"",这样处理有利于外部判断,
      * 同时将获取到的值映射到页面上
      *
-     * @param request
      *            HttpServletRequest对象
      * @return 返回处理过后的数据
      */
@@ -408,7 +401,6 @@ public class BasicUtil {
     /**
      * 获取session的值
      *
-     * @param request
      *            HttpServletRequest对象
      * @param key
      *            枚举类中的值
@@ -421,7 +413,6 @@ public class BasicUtil {
     /**
      * 设置session的值
      *
-     * @param request
      *            HttpServletRequest对象
      * @param key
      *            枚举类中的值
@@ -433,7 +424,6 @@ public class BasicUtil {
     /**
      * 移除session的值
      *
-     * @param request
      *            HttpServletRequest对象
      * @param key
      *            枚举类中的值
@@ -445,7 +435,6 @@ public class BasicUtil {
     /**
      * 获取Cookie的值
      *
-     * @param request
      *            HttpServletRequest对象
      * @param key
      *            枚举类中的值

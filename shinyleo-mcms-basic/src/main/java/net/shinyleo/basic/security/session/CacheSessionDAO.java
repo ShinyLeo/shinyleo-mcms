@@ -1,5 +1,6 @@
 package net.shinyleo.basic.security.session;
 
+import com.google.common.collect.Sets;
 import net.shinyleo.basic.util.SpringUtil;
 import org.apache.shiro.session.Session;
 import org.apache.shiro.session.UnknownSessionException;
@@ -118,7 +119,6 @@ public class CacheSessionDAO extends EnterpriseCacheSessionDAO implements Sessio
      * @param includeLeave 是否包括离线（最后访问时间大于3分钟为离线会话）
      * @return
      */
-    @Override
     public Collection<Session> getActiveSessions(boolean includeLeave) {
         return getActiveSessions(includeLeave, null, null);
     }
@@ -130,7 +130,6 @@ public class CacheSessionDAO extends EnterpriseCacheSessionDAO implements Sessio
      * @param filterSession 不为空，则过滤掉（不包含）这个会话。
      * @return
      */
-    @Override
     public Collection<Session> getActiveSessions(boolean includeLeave, Object principal, Session filterSession) {
         // 如果包括离线，并无登录者条件。
         if (includeLeave && principal == null){

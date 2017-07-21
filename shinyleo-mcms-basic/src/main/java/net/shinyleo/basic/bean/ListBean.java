@@ -1,5 +1,7 @@
 package net.shinyleo.basic.bean;
 
+import com.github.pagehelper.PageInfo;
+
 import java.util.List;
 
 /**

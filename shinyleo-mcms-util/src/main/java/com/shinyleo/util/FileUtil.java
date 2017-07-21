@@ -21,7 +21,8 @@ public class FileUtil {
         try {
             File e = new File(filePath);
             if(e.isFile() && e.exists()) {
-                InputStreamReader read = new InputStreamReader(new FileInputStream(e), "UTF-8");
+                FileInputStream fin = new FileInputStream(e);
+                InputStreamReader read = new InputStreamReader(fin, "UTF-8");
 
                 BufferedReader reader;
                 String line;
@@ -31,9 +32,12 @@ public class FileUtil {
 
                 reader.close();
                 read.close();
+                fin.close();
             }
         } catch (Exception var6) {
             var6.printStackTrace();
+        }finally {
+
         }
 
         return fileContent;

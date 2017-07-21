@@ -157,6 +157,15 @@ public class ImageUtil {
                     baos.flush();
                 } catch (IOException var11) {
                     var11.printStackTrace();
+                }finally {
+                    if(null != is){
+                        try {
+                            is.close();
+                        } catch (IOException e) {
+                            e.printStackTrace();
+                        }
+                    }
+
                 }
 
                 byte[] e1 = baos.toByteArray();
@@ -169,6 +178,14 @@ public class ImageUtil {
                     os.close();
                 } catch (IOException var10) {
                     var10.printStackTrace();
+                }finally {
+                    if(null != os ){
+                        try {
+                            os.close();
+                        } catch (IOException e) {
+                            e.printStackTrace();
+                        }
+                    }
                 }
 
                 try {
@@ -203,6 +220,14 @@ public class ImageUtil {
                     baos.flush();
                 } catch (IOException var11) {
                     var11.printStackTrace();
+                }finally {
+                    if(null != is ){
+                        try {
+                            is.close();
+                        } catch (IOException e) {
+                            e.printStackTrace();
+                        }
+                    }
                 }
 
                 byte[] e1 = baos.toByteArray();
@@ -215,10 +240,21 @@ public class ImageUtil {
                     os.close();
                 } catch (IOException var10) {
                     var10.printStackTrace();
+                }finally {
+                    if(null != os ){
+                        try {
+                            os.close();
+                        } catch (IOException e) {
+                            e.printStackTrace();
+                        }
+                    }
                 }
 
                 try {
-                    is.close();
+                    if(null != is){
+                        is.close();
+                    }
+
                     baos.close();
                 } catch (IOException var9) {
                     var9.printStackTrace();
