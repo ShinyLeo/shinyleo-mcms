@@ -1,24 +1,3 @@
-/**
-The MIT License (MIT) * Copyright (c) 2016 铭飞科技(mingsoft.net)
-
- * Permission is hereby granted, free of charge, to any person obtaining a copy of
- * this software and associated documentation files (the "Software"), to deal in
- * the Software without restriction, including without limitation the rights to
- * use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of
- * the Software, and to permit persons to whom the Software is furnished to do so,
- * subject to the following conditions:
-
- * The above copyright notice and this permission notice shall be included in all
- * copies or substantial portions of the Software.
-
- * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
- * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS
- * FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR
- * COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER
- * IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
- * CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
- */
-
 package com.shinyleo.people.action.people;
 
 import java.io.File;
@@ -32,24 +11,20 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.alibaba.fastjson.JSONObject;
-import com.mingsoft.people.biz.IPeopleBiz;
-import com.mingsoft.people.biz.IPeopleUserBiz;
-import com.mingsoft.people.constant.ModelCode;
-import com.mingsoft.people.entity.PeopleEntity;
-import com.mingsoft.people.entity.PeopleUserEntity;
-import com.mingsoft.people.action.BaseAction;
-import com.mingsoft.util.FileUtil;
-import com.mingsoft.util.ImageUtil;
-import com.mingsoft.util.StringUtil;
+import com.shinyleo.people.biz.IPeopleBiz;
+import com.shinyleo.people.biz.IPeopleUserBiz;
+import com.shinyleo.people.constant.ModelCode;
+import com.shinyleo.people.entity.PeopleEntity;
+import com.shinyleo.people.entity.PeopleUserEntity;
+import com.shinyleo.people.action.BaseAction;
+import com.shinyleo.util.FileUtil;
+import com.shinyleo.util.ImageUtil;
+import com.shinyleo.util.StringUtil;
 
 /**
  * 
- * 铭飞会员系统 详细的用户信息
- * @author 铭飞开发团队
- * @version 
- * 版本号：100-000-000<br/>
- * 创建日期：2016年3月31日<br/>
- * 历史修订：<br/>
+ *会员系统 详细的用户信息
+ * Created by shinyleo on 17/7/20.
  */
 @Controller("webPeopleUser")
 @RequestMapping("/people/user")
@@ -143,14 +118,14 @@ public class PeopleUserAction extends BaseAction {
 		if (people == null) {
 			// 当session不存在返回错误信息
 			this.outJson(response, ModelCode.PEOPLE_USER, false,
-					this.getResString("people.session.msg.null.error", com.mingsoft.people.constant.Const.RESOURCES));
+					this.getResString("people.session.msg.null.error", com.shinyleo.people.constant.Const.RESOURCES));
 			return;
 		}
 
 		if (peopleUser == null) {
 			// 未填写信息返回错误信息
 			this.outJson(response, ModelCode.PEOPLE_USER, false,
-					this.getResString("people.user.msg.null.error", com.mingsoft.people.constant.Const.RESOURCES));
+					this.getResString("people.user.msg.null.error", com.shinyleo.people.constant.Const.RESOURCES));
 			return;
 		}
 
@@ -172,7 +147,7 @@ public class PeopleUserAction extends BaseAction {
 		this.peopleBiz.updateEntity(people);
 		// 返回用户添加成功
 		this.outJson(response, ModelCode.PEOPLE_USER, true,
-				this.getResString("people.user.save.msg.success", com.mingsoft.people.constant.Const.RESOURCES));
+				this.getResString("people.user.save.msg.success", com.shinyleo.people.constant.Const.RESOURCES));
 	}
 
 	/**
@@ -192,7 +167,7 @@ public class PeopleUserAction extends BaseAction {
 		if (people == null) {
 			// 当session不存在返回错误信息
 			this.outJson(response, ModelCode.PEOPLE_USER, false,
-					this.getResString("people.session.msg.null.error", com.mingsoft.people.constant.Const.RESOURCES));
+					this.getResString("people.session.msg.null.error", com.shinyleo.people.constant.Const.RESOURCES));
 			return;
 		}
 
@@ -201,7 +176,7 @@ public class PeopleUserAction extends BaseAction {
 		if (peopleUser == null) {
 			// 未填写信息返回错误信息
 			this.outJson(response, ModelCode.PEOPLE_USER, false,
-					this.getResString("people.user.msg.null.error", com.mingsoft.people.constant.Const.RESOURCES));
+					this.getResString("people.user.msg.null.error", com.shinyleo.people.constant.Const.RESOURCES));
 			return;
 		}
 
@@ -213,7 +188,7 @@ public class PeopleUserAction extends BaseAction {
 		this.peopleUserBiz.updatePeople(oldPeopleUser);
 		// 返回更新成功
 		this.outJson(response, ModelCode.PEOPLE_USER, true,
-				this.getResString("people.user.update.msg.success", com.mingsoft.people.constant.Const.RESOURCES));
+				this.getResString("people.user.update.msg.success", com.shinyleo.people.constant.Const.RESOURCES));
 	}
 
 	/**

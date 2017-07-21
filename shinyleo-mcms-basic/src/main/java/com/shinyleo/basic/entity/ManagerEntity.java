@@ -45,6 +45,8 @@ public class ManagerEntity extends SessionEntity {
      */
     private Date managerTime = new Date();
 
+    private Date expireTime;
+
     /**
      * 获取managerTime
      * @return managerTime
@@ -155,5 +157,13 @@ public class ManagerEntity extends SessionEntity {
      */
     public void setManagerRoleID(int managerRoleID) {
         this.managerRoleID = managerRoleID;
+    }
+
+    public Date getExpireTime() {
+        return expireTime;
+    }
+
+    public void setExpireTime(Date expireTime) {
+        this.expireTime = expireTime;
     }
 }

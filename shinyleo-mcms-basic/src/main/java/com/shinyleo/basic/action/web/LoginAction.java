@@ -17,6 +17,7 @@ import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authc.UsernamePasswordToken;
 import org.apache.shiro.subject.Subject;
 import org.springframework.beans.BeanUtils;
+import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
@@ -27,6 +28,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.File;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -131,7 +133,10 @@ public class LoginAction extends BaseAction {
         if (_manager == null) {
             // 系统不存在此用户
             this.outJson(response, ModelCode.ADMIN_LOGIN, false, this.getResString("err.nameEmpty"));
-        } else {
+        } else if(null != _manager.getExpireTime() &&   (new Date().after(_manager.getExpireTime()))){
+            outJson(response, ModelCode.ADMIN_LOGIN, false, getResString("expire.time.message"));
+            return;
+        }else {
             // 判断当前用户输入的密码是否正确
             if (StringUtil.Md5(manager.getManagerPassword()).equals(_manager.getManagerPassword())) {
                 SystemSkinEntity systemSkin = systemSkinBiz.getByManagerId(_manager.getManagerId());
