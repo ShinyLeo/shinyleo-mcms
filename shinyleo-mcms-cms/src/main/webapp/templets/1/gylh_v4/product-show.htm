@@ -1,0 +1,201 @@
+<!DOCTYPE html >
+<html>
+<head>
+    {ms:include filename=head.htm/}
+</head>
+
+<body id="body">
+
+<link rel="stylesheet" type="text/css" href="{ms:globalskin.url/}css/news-show-css.css">
+<script>
+    devicePixelRatio = Math.min($.type(window.devicePixelRatio) !== 'undefined' ? window.devicePixelRatio : 1, 1.6);
+</script>
+<link rel="stylesheet" type="text/css" href="{ms:globalskin.url/}css/style.css">
+<style>
+    .appMask {
+        display: block;
+    }
+</style>
+<div id="layout" class="layout">
+    <div id="wrapper" class="wrapper" path="wrapper" static="root" data-del="false">
+        <div id="container" class="container" path="container" static="wrapper" data-del="false">
+            <!--header-->
+            {ms:include filename=header.htm/}
+
+            <div id="main" class="main" path="main" static="root" data-del="false" setstyle="true">
+                <div id="mainWrapper" class="mainWrapper" path="wrapper" static="main" data-del="false">
+                    <div id="mainContainer" class="mainContainer" path="container" static="mainWrapper"
+                         data-del="false">
+                        <div class="row" role="dragEl" path="row" id="el_1468295399379omp62" setstyle="true">
+                            <div class="rowPatch">
+                                <div class="span12">
+                                    <div class="boxBlock">
+                                        <div class="elementContainer" path="column" id="el_1468295399363gy601"
+                                             setstyle="true">
+                                            <div class="appWrapper" data-events='' path="app" role="dragEl"
+                                                 id="app_5236462449507867">
+                                                <div class="appMask"></div>
+                                                <div class="article_detail">
+                                                    <div class="container">
+                                                        <style>
+                                                            .article_detail_1_info time {
+                                                                vertical-align: top
+                                                            }
+
+                                                            .article_detail_1_title {
+                                                                text-align: center;
+                                                                margin: .8em 0 1em
+                                                            }
+
+                                                            .article_detail_1_info {
+                                                                text-align: center
+                                                            }
+
+                                                            .article_detail_1_content {
+                                                                margin-top: 24px
+                                                            }
+
+                                                            .article_detail_1_btn {
+                                                                text-align: right;
+                                                                margin-top: 40px
+                                                            }
+
+                                                            .article_detail_1_btn a.first {
+                                                                margin-right: 15px
+                                                            }
+
+                                                            .article_detail_1_video {
+                                                                margin-top: 24px;
+                                                                text-align: center
+                                                            }
+
+                                                            .article_detail_1_video video {
+                                                                max-width: 100%
+                                                            }
+
+                                                            @media (max-width: 767px) {
+                                                                .article_detail_1_btn {
+                                                                    margin-top: 24px
+                                                                }
+                                                            }
+
+                                                            .article_detail_1_customAttr {
+                                                                margin: 20px 10px 0;
+                                                            }
+
+                                                            .article_detail_1_customAttr li {
+                                                                width: 100%;
+                                                                float: left;
+                                                                line-height: 30px;
+                                                            }
+
+                                                            .article_detail_1_customAttr p {
+                                                                padding: 0 10px;
+                                                            }
+
+                                                            .article_detail_1_video {
+                                                                margin-top: 20px;
+                                                            }
+                                                        </style>
+                                                        <div class="article_detail_1">
+                                                            <div class="con_body">
+                                                                <h3 class="article_detail_title article_detail_1_title bf ic">
+                                                                    {ms:field.title/} </h3>
+                                                                <div class="article_detail_1_info article_detail_info">
+                                                                    <span><time
+                                                                            class="nc">日期：{ms:field.date fmt=yyyy-MM-dd/}</time></span>
+                                                                    <span class="countText"> 浏览次数：&nbsp;{ms:field.hit/}</span>
+                                                                    <span>
+                     <div class="bdsharebuttonbox" style="margin-top: -3px;"><a href="#" class="bds_more" data-cmd="more"></a><a href="#" class="bds_sqq" data-cmd="sqq" title="分享到QQ好友"></a><a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a><a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a></div>
+<script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"1","bdSize":"16"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
+                                                                    </span>
+                                                                </div>
+                                                                <hr style="height:1px;width: 80%;border:none;border-top:1px dashed #0066CC;margin-left:auto;margin-right:auto;"/>
+                                                                <article class="article_detail_content article_detail_1_content">
+                                                                    <p>
+                                                                    <div style="margin-left: 25%">
+                                                                        <img  src="{ms:field.litpic/}"  class="responsiveImage" style="height: auto; width: auto;">
+                                                                    </div>
+
+                                                                    </p>
+                                                                    <p>
+                                                                        {ms:field.content/}
+                                                                    </p>
+                                                                </article>
+                                                                <!--分享暂时隐藏<div class="article_detail_btn article_detail_1_btn ">
+                                                                                                                                                                            <a href="javascript:;" class="first" role="article_share"><i class="xzicon-share"></i>&nbsp;分享</a>
+                                                                                                                                                                                            <a href="javascript:;"><i class="xzicon-praise"></i>&nbsp;0</a>
+                                                -->
+
+                                                                <div class="article_detail_switch clearfix">
+                                                                    <div class="article_detail_prev">
+
+                                                                    </div>
+                                                                    <div class="article_detail_next">
+                                                                        <a class="nbgc ic" href="{ms:field.prelink/}"><font size="4">&larr; </font>上一篇</a><a class="nbgc ic"  href="{ms:field.nextlink/}">下一篇 <font size="4">→</font></a>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <script>
+                                                            ;
+                                                            (function ($) {
+                                                                var id = 'app_5236462449507867',
+                                                                    article_css = '{ms:globalskin.url/}css/article.css';
+                                                                appReady[id] = {
+                                                                    resources: [article_css],
+                                                                    onReady: function () {
+                                                                        var container = $('#' + id + ' div.con_body:first');
+                                                                        $('.video', '#' + id).video_player();
+                                                                        $('a[role="article_share"]', container).on(click, function () {
+                                                                            var article_img = $('img[role="article_img"]', container).attr('src');
+                                                                            if (!article_img) {
+                                                                                $('[role="article_content"] img', container).each(function () {
+                                                                                    if ($(this).attr('src')) {
+                                                                                        article_img = $(this).attr('src');
+                                                                                        return;
+                                                                                    }
+                                                                                })
+                                                                            }
+                                                                            ;
+
+                                                                            var title = $('[role="article_title"]', container).text(),
+                                                                                url = windowURL;
+
+
+                                                                            share({
+                                                                                title: title,
+                                                                                url: url,
+                                                                                img: article_img
+                                                                            })
+                                                                        });
+                                                                    }
+                                                                };
+                                                            })(jQuery);
+
+                                                        </script>
+                                                    </div>
+                                                    <script>
+                                                        ;
+                                                        (function ($) {
+                                                            appInit("app_5236462449507867", {});
+                                                        })(jQuery);
+                                                    </script>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--footer-->
+            {ms:include filename=footer.htm/}
+        </div>
+    </div>
+</div>
+</body>
+
+</html>

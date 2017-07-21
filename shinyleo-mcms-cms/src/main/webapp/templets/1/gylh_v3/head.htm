@@ -1,0 +1,61 @@
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>{ms:global.name/}</title>
+<meta http-equiv="cache-control" content="private">
+<meta http-equiv="expires" content="0">
+<meta content="{ms:global.name/}" name="author">
+<meta content="{ms:global.copyright/}" name="Copyright">
+<meta content="{ms:global.descrip/}" name="description">
+<meta content="{ms:global.keyword/}" name="keywords">
+<meta id="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1,user-scalable=no" name="viewport" >
+<meta content="yes" name="apple-mobile-web-app-capable">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta content="white" name="apple-mobile-web-app-status-bar-style">
+<meta content="telephone=no,email=no" name="format-detection" />
+<!--浏览器图标-->
+<!--iphone图标-->
+<!--iphone启动界面-->
+<link rel="stylesheet" type="text/css" href="{ms:globalskin.url/}css/fonts.css">
+<link rel="stylesheet" type="text/css" href="{ms:globalskin.url/}css/dialog.css">
+<link rel="stylesheet" type="text/css" href="{ms:globalskin.url/}css/xzSite.css">
+<!--[if lt IE 10]>
+<script src="{ms:globalskin.url/}js/jquery.js"></script>
+<script src="{ms:globalskin.url/}js/modernizr.js"></script>
+<![endif]-->
+<!--[if gte IE 10]><!-->
+<script src="{ms:globalskin.url/}js/jquery.js"></script>
+<!--<![endif]-->
+<script>
+    var appSys = 'web';
+    var host = '{ms:global.url/}';
+    var staticPath = '/static';
+    var phprpcURL = '/rpc/index/';//默认rpc请求地址
+    var rpcAction = 'rpcIndex';//默认rpc的action
+    var filePath = host.replace("html/1","");
+    var domain = filePath;
+    //var filePath = 'http://localhost:8080/';//默认文件地址
+    //var filePath = 'http://okgo.top/';
+    var thumbnailQuality = 90;//默认图片质量
+    var rpcJS = '{ms:global.url/}js/phprpc.js';
+    var windowURL = window.location.href;
+    var customMode = false;
+    var click = 'click';
+    var isTouch = false;
+    if ("ontouchend" in document) {
+        if (navigator.userAgent.indexOf('QQ') < 0) {
+            document.write('<script src="{ms:global.url/}js/vMouse.js"><\/script>');
+            click = 'vclick';
+        }
+        ;
+        isTouch = true;
+    }
+    ;
+
+</script>
+<script src="{ms:globalskin.url/}js/jquery.easing.compatibility.js"></script>
+<script src="{ms:globalskin.url/}js/siteText.js"></script>
+<script src="{ms:globalskin.url/}js/common.js"></script>
+<script src="{ms:globalskin.url/}js/dialog.js"></script>
+<!--
+
+-->
+<script src="{ms:globalskin.url/}js/xzSite.js"></script>

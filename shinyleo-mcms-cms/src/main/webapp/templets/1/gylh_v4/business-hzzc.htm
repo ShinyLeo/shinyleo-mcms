@@ -1,0 +1,220 @@
+<!DOCTYPE html >
+<html>
+<head>
+    {ms:include filename=head.htm/}
+</head>
+
+<body id="body">
+
+<link rel="stylesheet" type="text/css" href="{ms:globalskin.url/}css/hzgy-css.css">
+
+<script>
+    devicePixelRatio = Math.min($.type(window.devicePixelRatio) !== 'undefined' ? window.devicePixelRatio : 1, 1.6);
+</script>
+<link rel="stylesheet" type="text/css" href="{ms:globalskin.url/}css/style.css">
+<style>
+    .appMask {
+        display: none;
+    }
+
+    #Content{
+        width:100%;
+        margin:0 auto;/*设置整个容器在浏览器中水平居中*/
+        display: inline-flex;
+    }
+
+    #left_ul >li a:hover{
+        background: #cccccc;
+        display: block;
+        background:url({ms:globalskin.url/}images/xwli2_1.png) repeat;
+        background-size: 100% 100%;
+    }
+
+    #Content-Left{
+        background:#ededed;
+        width:30%;
+    }
+
+    #Content-c-1{
+        background: #f9f9f9;
+        width: 15%;
+    }
+
+    #Content-right{
+        background:  #ededed;
+        width: 30%;
+    }
+
+    @media screen and (max-width: 768px) {
+
+        #Content-Left{
+            background:#ededed;
+            width:10%;
+        }
+
+        #Content-c-1{
+            background: #f9f9f9;
+            width: 50%;
+        }
+
+        #Content-right{
+            background:  #ededed;
+            width: 5%;
+        }
+    }
+</style>
+<div id="layout" class="layout">
+    <div id="wrapper" class="wrapper" path="wrapper" static="root" data-del="false">
+        <div id="container" class="container" path="container" static="wrapper" data-del="false">
+            <!--header-->
+            {ms:include filename=header.htm/}
+
+            <div id="main" class="main" path="main" static="root" data-del="false" setstyle="true">
+                <div id="mainWrapper" class="mainWrapper" path="wrapper" static="main" data-del="false">
+                    <div id="mainContainer" class="mainContainer" path="container" static="mainWrapper"
+                         data-del="false">
+                        <!--子页面大图-->
+                        <div class="row" role="dragEl" path="row" id="el_14678840768693b8b2" setstyle="true">
+                            <div class="rowPatch">
+                                <div class="span12">
+                                    <div class="boxBlock">
+                                        <div class="elementContainer" path="column" id="el_1467884076865m7pc1">
+                                            <div class="appWrapper hide_480_767 hide_max479" data-events=""
+                                                 data-content="html" role="dragEl" path="app" id="app_6017345747692673"
+                                                 data-data="{&quot;id&quot;:&quot;image&quot;,&quot;name&quot;:&quot;\u56fe\u7247&quot;,&quot;type&quot;:&quot;element&quot;,&quot;sole&quot;:&quot;0&quot;,&quot;options&quot;:{&quot;src&quot;:&quot;146882249125255.jpg&quot;,&quot;phonesrc&quot;:&quot;&quot;,&quot;responsive&quot;:&quot;0&quot;},&quot;styles&quot;:[],&quot;random&quot;:&quot;6017345747692673&quot;,&quot;addClass&quot;:[]}"
+                                                 data-appid="image" data-type="element" setstyle="true">
+                                                <div class="appMask"></div>
+                                                <div class="appContent">
+                                                    <div class="image">
+                                                        <div class="container"><!--链接不为空时加a-->
+                                                            <img style="width: 100%;" src="{ms:globalskin.url/}images/hzgy.png" >
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!--手机图片？-->
+                                            <div class="appWrapper  show_480_767 show_max479 hide_basic" data-events=""
+                                                 data-content="html" role="dragEl" path="app" id="el_1468295662409ihmq3"
+                                                 data-data="{&quot;id&quot;:&quot;image&quot;,&quot;name&quot;:&quot;\u56fe\u7247&quot;,&quot;type&quot;:&quot;element&quot;,&quot;sole&quot;:&quot;0&quot;,&quot;options&quot;:{&quot;src&quot;:&quot;146882250751833.jpg&quot;,&quot;phonesrc&quot;:&quot;&quot;,&quot;responsive&quot;:&quot;0&quot;},&quot;styles&quot;:[],&quot;random&quot;:&quot;el_1468295662409ihmq3&quot;,&quot;addClass&quot;:[]}"
+                                                 data-appid="image" data-type="element" setstyle="true">
+                                                <div class="appMask"></div>
+                                                <div class="appContent">
+                                                    <div class="image">
+                                                        <div class="container"><!--链接不为空时加a-->
+                                                            <img style="width: 100%;"src="{ms:globalskin.url/}images/m5.jpg"
+                                                                 data-phonesrc="" alt=""></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!--COOPERATION SUCCESS-->
+                        <div class="row" role="dragEl" path="row" id="el_1468295399379omp62" setstyle="true">
+                            <div id="Content">
+                                <div id="Content-Left" ></div>
+                                <div id="Content-c-1" >
+                                    <div style="margin-top: 20px;">
+                                        <span>
+                                           <img src="{ms:globalskin.url/}images/gy_nav.jpg">
+                                         </span>
+                                        <ul style="text-align: center;margin-top: 10px;" id="left_ul">
+                                            <li style="margin-bottom:20px;line-height: 40px;"><a href="{ms:global.url/}/162/159/160/index.html"><span class = "left_title_font">团队介绍</span></a></li>
+                                            <li style="margin-bottom:20px;line-height: 40px;background: url({ms:globalskin.url/}images/xwli4.png);background-size: 100% 100%;"><a href="{ms:global.url/}/162/159/161/index.html"><span class = "left_title_font">合作政策</span></a></li>
+                                            <li style="margin-bottom:20px;line-height: 40px;"><a href="{ms:global.url/}/162/159/165/index.html"><span class = "left_title_font">合流流程</span></a></li>
+                                        </ul>
+                                    </div>
+                                    <div id ="Content-c-1-foot" style="height:70%"></div>
+
+                                </div>
+                                <div id="Content-c-2" style="margin-top: 36px;margin-left: 20px;" >
+                                    <div class="appWrapper" data-events='' path="app" role="dragEl"
+                                         id="app_0299418547791511">
+                                        <div class="appMask"></div>
+                                        <div class="article_list">
+                                            <div class="container">
+                                                <style type="text/css">
+                                                    .article_list_3 .article_list_imgBox {
+                                                        width: 25%;
+                                                        float: left
+                                                    }
+
+                                                    .article_list_3 .article_list_text {
+                                                        width: 75%;
+                                                        float: left;
+                                                        padding-left: 15px
+                                                    }
+
+                                                    .article_list_3_info span {
+                                                        vertical-align: middle;
+                                                        margin-right: 5px
+                                                    }
+
+                                                    .article_list_3_tag {
+                                                        margin-right: 140px
+                                                    }
+
+                                                    .article_list_3_btn a {
+                                                        margin-left: 10px
+                                                    }
+
+                                                    .article_list_3_btn i {
+                                                        font-size: 1pc;
+                                                        vertical-align: middle
+                                                    }
+
+                                                    .article_list_3_title {
+                                                        display: block
+                                                    }
+
+                                                    @media (max-width: 767px) {
+                                                        .article_list_3 .article_list_imgBox {
+                                                            width: 20%
+                                                        }
+
+                                                        .article_list_3 .article_list_text {
+                                                            width: 80%
+                                                        }
+                                                    }
+                                                </style>
+                                                <div class="article_list_3">
+                                                    <div class="con_body">
+                                                        <div class="appRow  list_min1200_1 list_961_1199_ list_768_960_ list_480_767_ list_max479_">
+                                                            <div class="appPatch">
+
+                                                                <div class="appColumn">
+                                                                    <div class="latticePad">
+                                                                        <div class="clearfix article_list_list article_list_3_list">
+                                                                            <div class="article_list_text">
+                                                                                <p class="article_list_abstract" style="margin-top: 10px;">
+                                                                                    {ms:field.content/}
+                                                                                </p>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <br/>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div id="Content-right" ></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--footer-->
+            {ms:include filename=footer.htm/}
+        </div>
+    </div>
+</div>
+</body>
+
+</html>

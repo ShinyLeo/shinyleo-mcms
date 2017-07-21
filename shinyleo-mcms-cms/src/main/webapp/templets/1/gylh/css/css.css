@@ -1,0 +1,166 @@
+/* CSS Document */
+/* 重置 */
+div,p,ul,ol,li{margin:0 0;padding:0 0;text-decoration:none;border-bottom:none;list-style-type:none;}
+/* 统一清除浮动 */
+.g-bdc:after,.m-dimg ul:after,.u-tab:after{display:block;visibility:hidden;clear:both;height:0;overflow:hidden;content:'.';}
+.g-bdc,.m-dimg ul,.u-tab{zoom:1;}
+
+
+
+
+.jljx{
+	width:100%;
+	height:100px;
+	text-align:center;
+	margin:40px auto 0px auto;
+	overflow:hidden;
+}
+.sztp{
+	width:100%;
+	height:424px;
+	margin:40px auto 0px auto;
+	overflow:hidden;
+}
+.tpa{
+
+	overflow:hidden;
+	margin:0px 0px 0px 0px;
+}
+
+
+.gsxw{
+	width:100%;
+	height:116px;
+	margin:30px auto 0px auto;
+	text-align:center;
+	overflow:hidden;
+}
+
+.xwnrwz span{
+	font-size:14px;
+	font-family: "微软雅黑";
+	display:inline;
+	float: right;
+	color: #0445B0;
+	text-decoration:none;
+	margin:0px 20px 0px 0px;
+	padding:0px 0px 0px 0px;
+}
+
+.xwnrwz {
+	overflow:hidden;
+	margin:0px 0px 0px 0px;
+	background-color:#f7f7f7;
+}
+
+.xwnrwz a{
+	font-size:14px;
+	font-family: "微软雅黑";
+	display:inline;
+	color:#000;
+	text-decoration:none;
+	margin:0px 0px 0px 0px;
+	padding:0px 0px 0px 0px;
+}
+
+.xwnrwz a:link, .xwnrwz a:visited{
+	color: #000;
+	text-decoration:none;
+}
+.xwnrwz a:hover{
+	color:#406486;
+	text-decoration:none;
+}
+.gdxw{
+	width:100%;
+	height:60px;
+	text-align:center;
+	margin:50px auto 0px auto;
+	overflow:hidden;
+}
+
+.dibu{
+	width:100%;
+	height:100px;
+	text-align:center;
+	margin:50px auto 0px auto;
+	overflow:hidden;
+	background-color:#1d2e3e;
+}
+.dibunr{
+	width:1000px;
+	height:45px;
+	text-align:center;
+	margin:10px auto 0px auto;
+	overflow:hidden;
+}
+
+
+.productRow a:hover img{filter:alpha(Opacity=80);-moz-opacity:0.8;opacity: 0.6}
+
+
+footer {
+	background: #333;
+	color: #eee;
+	font-size: 11px;
+	padding: 20px;
+}
+ul.unstyled {
+	list-style: none;
+	padding: 0;
+}
+footer h6 {
+	color: white;
+}
+
+#footer {
+	margin-left: 45.66666667%;
+}
+
+p.content {
+	color: #333;
+	-webkit-text-size-adjust: none;
+	padding-top: 10px;
+	line-height: 2;
+	word-wrap: break-word;
+	font-family: 'Simsun';
+}
+
+.productRow {
+	margin-right: -11%;
+	margin-left: -13%;
+}
+
+#product {
+	width:33.33%;
+	margin: 0 auto;
+}
+
+#product > img {
+	width: 100%;
+	height: 424px;
+	position: relative;
+}
+
+
+#product > div{
+	position: absolute;
+	top: 323px;
+	width: 100%;
+	height: 100px;
+	background: rgba(0,0,0,0.5);
+	text-align: center;
+	line-height: 100px;
+	font-size: 2em;
+	color: white;
+	display: none;
+}
+
+#product:hover >div{
+	display: block;
+}
+
+
+
+
+

@@ -1,0 +1,279 @@
+<header id="header" class="header" path="header" static="root" data-del="false">
+    <div id="headerWrapper" class="headerWrapper" path="wrapper" static="header" data-del="false">
+        <div id="headerContainer" class="headerContainer" path="container" static="headerWrapper" data-del="false" setstyle="true">
+
+            <div class="row" role="dragEl" path="row" id="el_1467879473117aubk2"
+                 data-layout="{&quot;basic&quot;:&quot;3_9&quot;,&quot;768_960&quot;:&quot;no&quot;,&quot;480_767&quot;:&quot;2&quot;,&quot;max479&quot;:&quot;2&quot;}"
+                 column_768_960="no" column_480_767="2" column_max479="2" setstyle="true">
+                <div class="rowPatch">
+                    <div class="span3">
+                        <div class="boxBlock">
+                            <div class="elementContainer" path="column" id="el_1467879473112piko1" setstyle="true">
+                                <div class="appWrapper" data-events='' path="app" role="dragEl" id="app_9725269862415915">
+                                    <div class="appMask"></div>
+                                    <div class="logo">
+                                        <div class="container">
+                                            <a href="/"><img  src="{ms:globalskin.url/}images/logov6.png"/></a>
+                                        </div>
+                                        <script>
+                                            ;(function($){
+                                                appInit("app_9725269862415915",{});
+                                            })(jQuery);
+                                        </script>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="span9">
+                        <div class="boxBlock">
+                            <div class="elementContainer" path="column" id="el_1467883173171ny0c1" setstyle="true">
+                                <div class="appWrapper" data-events='' path="app" role="dragEl" id="app_3852504659575034">
+                                    <div class="appMask"></div>
+                                    <div class="nav">
+                                        <div class="container">
+                                            <style>
+                                                .navItem.moreItem .navItem{
+                                                    display:block;
+                                                    margin:0;
+                                                }
+                                                .navItem.moreItem .navSon .navItemBar{
+                                                    padding:0;
+                                                }
+                                                .navItem.moreItem .navSon .navSon{
+                                                    top:0;
+                                                    left:100%;
+                                                    opacity:0;
+                                                    visibility:hidden;
+                                                }
+                                                .navItem.moreItem .navSon .navItem:hover .navSon,
+                                                .navItem.moreItem.showNavSon .navSon .navSon{
+                                                    opacity:1;
+                                                    visibility:visible;
+                                                }
+
+                                                @media(max-width:769px){
+                                                    .nav_1 .navList.left{
+                                                        left:0;
+                                                        right:auto;
+                                                    }
+                                                    .nav_1 .navList.right{
+                                                        right:0;
+                                                        left:auto;
+                                                    }
+                                                }
+                                            </style>
+
+                                            <!--导航-->
+                                            <div class="navBar nav_1">
+                                                <div class="con_body">
+                                                    <div class="navMenuContainer"><a href="javascript:;" class="navMenu" role="navBtn"><i class="xzicon-menu"></i></a></div>
+                                                    <div class="navContainer" role="navContainer">
+                                                        <ul class="navList  right" role="navList">
+                                                            <li class="navItem">
+                                                                <a  href="{ms:global.url/}" class="navItemBar">首页</a>
+                                                            </li>
+                                                            {ms:channel type=son typeid=162 size=4}
+                                                            <li class="navItem">
+                                                                <a  href="[field.typelink/]" class="navItemBar">[field.typetitle/]</a>
+                                                            </li>
+                                                            {/ms:channel}
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <script>
+                                                ;
+                                                (function ($) {
+                                                    var id = 'app_3852504659575034',
+                                                        openWay='0',
+                                                        moreNav=0;
+                                                    appReady[id] = function () {
+                                                        var container = $('#' + id + ' div.navBar:first'),
+                                                            navContainer=$('div[role="navContainer"]:first',container),
+                                                            navList = $('ul[role="navList"]', container),
+                                                            navMenu = $('a[role="navBtn"]', container);
+
+                                                        if(moreNav==1){
+                                                            resizeNav();
+                                                            $(window).resize(function(){
+                                                                resizeNav();
+                                                            });
+                                                        };
+
+                                                        if (customMode) {
+                                                            $('li.family:first').addClass('showNavSon');
+                                                        };
+
+                                                        navMenu.on(click, function (e) {
+                                                            navContainer.toggleClass('show');
+                                                            if(openWay==1){
+                                                                navList.css('left',-100+'%').animate({
+                                                                    left:0
+                                                                },300);
+                                                            }else if(openWay==0){
+                                                                navList.css('right',-100+'%').animate({
+                                                                    right:0
+                                                                },300);
+                                                            }
+
+                                                            e.stopPropagation();
+                                                        });
+                                                        navContainer.on(click,function(){
+                                                            var $this=$(this);
+                                                            if(openWay==1){
+                                                                navList.animate({
+                                                                    left:-100+'%'
+                                                                },300);
+                                                                $this.animate({
+                                                                    opacity:0
+                                                                },300,function(){
+                                                                    navList.css('left',0);
+                                                                    $this.removeClass('show').css('opacity',1);
+                                                                });
+                                                            }else if(openWay==0){
+                                                                navList.animate({
+                                                                    right:-100+'%'
+                                                                },300);
+                                                                $this.animate({
+                                                                    opacity:0
+                                                                },300,function(){
+                                                                    navList.css('right',0);
+                                                                    $this.removeClass('show').css('opacity',1);
+                                                                });
+                                                            };
+
+                                                        });
+                                                        navList.on(click,function(e){
+                                                            e.stopPropagation();
+                                                        });
+
+                                                        $('span[role="navArrow"]',navList).on(click, function (e) {
+                                                            e.stopPropagation();
+                                                            e.preventDefault();
+                                                            $(this).parent().next().slideToggle(300).addClass('display');
+                                                            $(this).parents('li:first').toggleClass('active');
+                                                        });
+
+                                                        $('a', navContainer).each(function () {
+                                                            var selected = false,
+                                                                url = windowURL.replace('.html', ''),
+                                                                href = $(this).attr('href').replace('.html', ''),
+                                                                host = getHost();
+                                                            if (url.split('://').length > 1) {
+                                                                url = url.replace(host, '');
+                                                            }
+                                                            ;
+                                                            if (href.split('://').length > 1) {
+                                                                href = href.replace(host, '');
+                                                            }
+                                                            ;
+                                                            if (url.indexOf('/') == 0) {
+                                                                url = url.substring(1);
+                                                            }
+                                                            ;
+                                                            if (href.indexOf('/') == 0) {
+                                                                href = href.substring(1);
+                                                            }
+                                                            ;
+                                                            if (url == href) {
+
+                                                                selected = true;
+                                                            }
+                                                            ;
+                                                            if (selected) {
+                                                                $(this).parent().addClass('selected');
+                                                            }
+
+                                                        });
+
+
+                                                        //导航更多
+                                                        var moreState=false;
+                                                        function resizeNav(){
+                                                            var windowWidth=$(window).width(),
+                                                                navWidth=navList.outerWidth(true);
+
+                                                            if(windowWidth>=768){
+                                                                var contentWidth=0,
+                                                                    moreHtml=$('<li class="navItem moreItem '+ (customMode?'showNavSon':'') +'"><a href="javascript:;" class="navItemBar">更多</a><ul class="navSon" role="moreSon"></ul></li>'),
+                                                                    itemLen=$('>li.navItem',navList).length-1,
+                                                                    eq=[];
+
+                                                                $('>li.navItem',navList).each(function(i){
+                                                                    contentWidth+=$(this).outerWidth(true);
+                                                                    $(this).data('width',$(this).outerWidth(true));
+                                                                });
+
+                                                                judgeWidth(itemLen);
+
+                                                                function judgeWidth(eq){
+                                                                    var $el=$('>li.navItem:eq('+ eq +')',navList);
+
+                                                                    if(contentWidth>navWidth&&!$el.hasClass('moreItem')){
+
+                                                                        contentWidth-=$el.outerWidth(true);
+                                                                        if($('ul[role="moreSon"]',navList).length){
+                                                                            $el.prependTo($('ul[role="moreSon"]',navList));
+                                                                        }else{
+                                                                            $el.prependTo($('ul[role="moreSon"]',moreHtml));
+                                                                        };
+                                                                        moreState=true;
+                                                                        itemLen--;
+                                                                        judgeWidth(itemLen);
+
+                                                                    }else if(contentWidth<navWidth&&moreState){
+                                                                        if(!$('ul[role="moreSon"]',navList).length){
+                                                                            navList.append(moreHtml);
+                                                                            contentWidth+=$('.moreItem',navList).outerWidth(true);
+                                                                            judgeWidth($('.moreItem',navList).prev().index());
+                                                                        }else{
+                                                                            var moreSon=$('ul[role="moreSon"]',navList),
+                                                                                itemWidth=$('.navItem:first',moreSon).data('width')+2,
+                                                                                differ=navWidth-contentWidth,
+                                                                                liberateNav=function(){
+                                                                                    if(differ>itemWidth){
+                                                                                        moreSon.parent().before($('.navItem:first',moreSon));
+                                                                                        if($('.navItem',moreSon).length==1){
+                                                                                            itemWidth-moreSon.parent().outerWidth(true);
+                                                                                            liberateNav();
+                                                                                        }else if(!$('.navItem',moreSon).length){
+                                                                                            moreState=false;
+                                                                                            $('.moreItem',navList).remove();
+                                                                                        };
+                                                                                    };
+                                                                                };
+                                                                            liberateNav();
+
+                                                                        }
+
+                                                                    }else if(contentWidth>navWidth&&$el.hasClass('moreItem')){
+                                                                        itemLen--;
+                                                                        judgeWidth(itemLen);
+                                                                    };
+                                                                };
+
+                                                            }else{
+
+                                                            }
+
+                                                        };
+                                                    };
+                                                })(jQuery);
+                                            </script>
+                                        </div>
+                                        <script>
+                                        ;(function($){
+                                            appInit("app_3852504659575034",{});
+                                        })(jQuery);
+                                         </script>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>

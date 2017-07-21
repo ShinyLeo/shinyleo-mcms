@@ -1,0 +1,246 @@
+<!DOCTYPE html >
+<html>
+<head>
+    {ms:include filename=head.htm/}
+</head>
+
+<body id="body">
+
+<link rel="stylesheet" type="text/css" href="{ms:globalskin.url/}css/news-list-css.css">
+
+<script>
+    devicePixelRatio = Math.min($.type(window.devicePixelRatio) !== 'undefined' ? window.devicePixelRatio : 1, 1.6);
+</script>
+<link rel="stylesheet" type="text/css" href="{ms:globalskin.url/}css/style.css">
+<style>
+    .appMask {
+        display: none;
+    }
+
+    #Content{
+        width:100%;
+        margin:0 auto;/*设置整个容器在浏览器中水平居中*/
+        display: inline-flex;
+    }
+
+    #left_ul >li a:hover{
+        background: #cccccc;
+        display: block;
+        background:url({ms:globalskin.url/}images/xwli2_1.png) repeat;
+        background-size: 100% 100%;
+    }
+
+    #Content-Left{
+        background:#ededed;
+        width:30%;
+    }
+
+    #Content-c-1{
+        background: #f9f9f9;
+        width: 15%;
+    }
+
+    #Content-right{
+        background:  #ededed;
+        width: 30%;
+    }
+
+    @media screen and (max-width: 768px) {
+
+        #Content-Left{
+            background:#ededed;
+            width:10%;
+        }
+
+        #Content-c-1{
+            background: #f9f9f9;
+            width: 50%;
+        }
+
+        #Content-right{
+            background:  #ededed;
+            width: 5%;
+        }
+
+        .fenye a{
+            border: 1px solid #cccccc;
+            padding: 0px 1px;
+            margin-left: 0px;
+            margin-right: 0px;
+            font-size: 12px;
+        }
+
+
+    }
+</style>
+<div id="layout" class="layout">
+    <div id="wrapper" class="wrapper" path="wrapper" static="root" data-del="false">
+        <div id="container" class="container" path="container" static="wrapper" data-del="false">
+            <!--header-->
+            {ms:include filename=header.htm/}
+
+            <div id="main" class="main" path="main" static="root" data-del="false" setstyle="true">
+                <div id="mainWrapper" class="mainWrapper" path="wrapper" static="main" data-del="false">
+                    <div id="mainContainer" class="mainContainer" path="container" static="mainWrapper"
+                         data-del="false">
+                        <!--子页面大图-->
+                        <div class="row" role="dragEl" path="row" id="el_14678840768693b8b2" setstyle="true">
+                            <div class="rowPatch">
+                                <div class="span12">
+                                    <div class="boxBlock">
+                                        <div class="elementContainer" path="column" id="el_1467884076865m7pc1">
+                                            <div class="appWrapper hide_480_767 hide_max479" data-events=""
+                                                 data-content="html" role="dragEl" path="app" id="app_6017345747692673"
+                                                 data-data="{&quot;id&quot;:&quot;image&quot;,&quot;name&quot;:&quot;\u56fe\u7247&quot;,&quot;type&quot;:&quot;element&quot;,&quot;sole&quot;:&quot;0&quot;,&quot;options&quot;:{&quot;src&quot;:&quot;146882249125255.jpg&quot;,&quot;phonesrc&quot;:&quot;&quot;,&quot;responsive&quot;:&quot;0&quot;},&quot;styles&quot;:[],&quot;random&quot;:&quot;6017345747692673&quot;,&quot;addClass&quot;:[]}"
+                                                 data-appid="image" data-type="element" setstyle="true">
+                                                <div class="appMask"></div>
+                                                <div class="appContent">
+                                                    <div class="image">
+                                                        <div class="container"><!--链接不为空时加a-->
+                                                            <img style="width: 100%;" src="{ms:globalskin.url/}images/news_lunbo.jpg">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!--手机图片？-->
+                                            <div class="appWrapper  show_480_767 show_max479 hide_basic" data-events=""
+                                                 data-content="html" role="dragEl" path="app" id="el_1468295662409ihmq3"
+                                                 data-data="{&quot;id&quot;:&quot;image&quot;,&quot;name&quot;:&quot;\u56fe\u7247&quot;,&quot;type&quot;:&quot;element&quot;,&quot;sole&quot;:&quot;0&quot;,&quot;options&quot;:{&quot;src&quot;:&quot;146882250751833.jpg&quot;,&quot;phonesrc&quot;:&quot;&quot;,&quot;responsive&quot;:&quot;0&quot;},&quot;styles&quot;:[],&quot;random&quot;:&quot;el_1468295662409ihmq3&quot;,&quot;addClass&quot;:[]}"
+                                                 data-appid="image" data-type="element" setstyle="true">
+                                                <div class="appMask"></div>
+                                                <div class="appContent">
+                                                    <div class="image">
+                                                        <div class="container"><!--链接不为空时加a-->
+                                                            <img src="{ms:globalskin.url/}images/news_lunbo.jpg"
+                                                                 data-src="{ms:globalskin.url/}images/news_lunbo.jpg"
+                                                                 data-phonesrc="" alt=""></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!--INDUSTRY NEWS-->
+                        <div class="row" role="dragEl" path="row" id="el_1468295399379omp62" setstyle="true">
+                            <div id="Content">
+                                <div id="Content-Left" ></div>
+                                <div id="Content-c-1" >
+                                    <div style="margin-top: 20px;">
+                                         <span>
+                                           <img src="{ms:globalskin.url/}images/zx_nav.jpg">
+                                         </span>
+                                        <ul style="text-align: center;margin-top: 10px;" id="left_ul">
+                                            <li style="margin-bottom:20px;line-height: 40px;"><a href="{ms:global.url/}/162/155/156/index.html"><span  class = "left_title_font" >公司新闻</span></a></li>
+                                            <li style="margin-bottom:20px;line-height: 40px;background: url({ms:globalskin.url/}images/xwli4.png);background-size: 100% 100%;"><a href="{ms:global.url/}/163/157/index.html"><span  class = "left_title_font" >行业动态</span></a></li>
+                                        </ul>
+                                    </div>
+                                    <div id ="Content-c-1-foot" style="height:70%"></div>
+
+                                </div>
+                                <div id="Content-c-2" style="margin-top: 36px;margin-left: 20px;" >
+                                    <div class="appWrapper" data-events='' path="app" role="dragEl"
+                                         id="app_0299418547791511">
+                                        <div class="appMask"></div>
+                                        <div class="article_list">
+                                            <div class="container">
+                                                <style type="text/css">
+                                                    .article_list_3 .article_list_imgBox {
+                                                        width: 25%;
+                                                        float: left
+                                                    }
+
+                                                    .article_list_3 .article_list_text {
+                                                        width: 75%;
+                                                        float: left;
+                                                        padding-left: 15px
+                                                    }
+
+                                                    .article_list_3_info span {
+                                                        vertical-align: middle;
+                                                        margin-right: 5px
+                                                    }
+
+                                                    .article_list_3_tag {
+                                                        margin-right: 140px
+                                                    }
+
+                                                    .article_list_3_btn a {
+                                                        margin-left: 10px
+                                                    }
+
+                                                    .article_list_3_btn i {
+                                                        font-size: 1pc;
+                                                        vertical-align: middle
+                                                    }
+
+                                                    .article_list_3_title {
+                                                        display: block
+                                                    }
+
+                                                    @media screen and (max-width: 768px) {
+                                                        .article_list_3 .article_list_imgBox {
+                                                            width: 20%
+                                                        }
+
+                                                        .article_list_3 .article_list_text {
+                                                            width: 80%;
+                                                            float: left;
+                                                        }
+
+                                                    }
+                                                </style>
+                                                <div class="article_list_3">
+                                                    <div class="con_body">
+                                                        <div class="appRow  list_min1200_1 list_961_1199_ list_768_960_ list_480_767_ list_max479_">
+                                                            <div class="appPatch">
+                                                                {ms:arclist typeid=157  size=5 orderby=sort order=desc titlelen=20 ispaging=true}
+                                                                <div class="appColumn">
+                                                                    <div class="latticePad">
+                                                                        <div class="clearfix article_list_list article_list_3_list">
+                                                                            <div class="article_list_text"><a
+                                                                                    href="[field.link/]"
+                                                                                    class="article_list_title article_list_3_title iC iFs"
+                                                                                    target="_blank">[field.fulltitle/]</a>
+                                                                                <p class="article_list_abstract" style="margin-top: 10px;">
+                                                                                    [field.descrip/] &nbsp;&nbsp;&nbsp;<p style="text-align: right;"><time class="article_list_time nC">[field.date fmt=yyyy-MM-dd/]</time></p>
+                                                                                </p>
+
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                {/ms:arclist}
+                                                            </div>
+                                                        </div>
+                                                        <!--分页 -->
+                                                        <div class="mt20 pagingBox_my selectPage tac" style="margin-bottom: 15px;">
+                                                            <div class="fenye">
+                                                                <a href="{ms:page.index/}" class="a1">首页&nbsp;&nbsp;</a>
+                                                                <a href="{ms:page.pre/}" class="a1">上一页&nbsp;&nbsp;</a>
+                                                                <a href="{ms:page.next/}" class="a1">下一页&nbsp;&nbsp;</a>
+                                                                <a href="{ms:page.last/}" class="a1">尾页&nbsp;&nbsp;</a>
+                                                            </div>
+                                                        </div>
+
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div id="Content-right" ></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--footer-->
+            {ms:include filename=footer.htm/}
+        </div>
+    </div>
+</div>
+</body>
+
+</html>

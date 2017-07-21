@@ -1,0 +1,194 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="{ms:globalskin.url/}css/sty.css" />
+    {ms:include filename=header.htm/}
+    <script src="{ms:globalskin.url/}/js/html5.js" type="text/javascript"></script>
+    <script src="{ms:globalskin.url/}js/dd_belatedpng_0.0.8a.js" type="text/javascript"></script>
+
+
+    <script>
+        function checkform(){
+            if($('#userName').val()==''){
+                $('#userName').focus();
+                return false;
+            }
+            if($('#mobile').val()==''){
+                $('#mobile').focus();
+                return false;
+            }
+            if($('#qq').val()==''){
+                $('#qq').focus();
+                return false;
+            }
+            if($('#content').val()==''){
+                $('#content').focus();
+                return false;
+            }
+            alert("我们已收到您的留言");
+            return false;
+        }
+
+
+        $('label[islab=true]').click(function(){
+            var f=$(this).attr('for');
+            $('label[for='+f+']').removeClass('checked');
+            $(this).addClass('checked');
+            $('input[name='+f+']').removeAttr('checked');
+            $(this).prev('input').attr('checked',true);
+        });
+
+        var flag = false;
+        function commit() {
+            if (!flag) {
+                $.ajax({
+                    type: "POST",
+                    url: "/mdiy/diyForm/f2c131968438246e885e0feed7256dbc.do",
+                    data: $("#postForm").serialize(),
+                    success: function(msg){
+                        flag = true;
+                        alert("提交成功");
+                    }
+                });
+            } else {
+                alert("您已经提交过了！");
+            }
+        }
+
+    </script>
+
+
+</head>
+<body>
+{ms:include filename=head.htm/}
+{ms:include filename=lunbo.htm/}
+
+    <div class="weizhi">
+        <div class="weizhibox">
+            您当前的位置：<a href="{ms:global.url/}">首页</a>--<a href="{ms:global.url/}/162/159/index.html">共赢</a> > <a href="{ms:global.url/}/162/159/165/index.html">与我共赢</a> >  </div>
+    </div>
+
+    <div class="nybt">    	投资介绍    </div>    <div class="nybtyw">    	BUSINESS    </div>
+    <div class="fenlei">
+        <span><a href="{ms:global.url/}/162/159/160/index.html"  >投资方向</a></span>
+        <span><a href="{ms:global.url/}/162/159/161/index.html"   >投资流程</a></span>
+        <span><a href="{ms:global.url/}/162/159/165/index.html"  id="chegnse">与我共赢</a></span>
+    </div>
+
+    <div class="jjnrtxt">
+        <div>
+            <h3 style="box-sizing: border-box; font-size: 24px; margin-bottom: 10px; font-family: &quot;Helvetica Neue&quot;, Helvetica, Arial, &quot;Hiragino Sans GB&quot;, &quot;Hiragino Sans GB W3&quot;, &quot;Microsoft YaHei UI&quot;, &quot;Microsoft YaHei&quot;, &quot;WenQuanYi Micro Hei&quot;, sans-serif; margin-top: 20px; font-weight: 100; color: rgb(200,32,52); line-height: 1.1">
+
+                <br style="box-sizing: border-box" />
+                <img src="{ms:field.litpic/}" style="font-size: 12px; font-family: Arial, Verdana, sans-serif; width: 40%; float: right; color: rgb(34,34,34); margin-left: 30px; margin-right: 30px" />
+            </h3>
+            {ms:field.content/}
+        </div>
+         <br/>
+    </div>
+
+    <div class = "container">
+
+        <form  method="post" class = "form-horizontal" id="postForm">
+            <input type="hidden" name="rand_code" value="null" />
+
+            <fieldset>
+                <legend>项目信息</legend>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label" for="protectName">项目名称：</label>
+                    <div class="col-sm-4">
+                        <input class="form-control" id="protectName" type="text" placeholder=""/>
+                    </div>
+
+                    <label class="col-sm-2 control-label" for="productType">项目性质：</label>
+                    <div class="col-sm-4">
+                        <input class="form-control" id="productType" type="text" placeholder=""/>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="col-sm-2 control-label" for="protectDesc">项目描述：</label>
+                    <div class="col-sm-4">
+                        <textarea class="form-control" id="protectDesc" rows="5" ></textarea>
+                    </div>
+                    <label class="col-sm-2 control-label" for="remark">其他备注：</label>
+                    <div class="col-sm-4">
+                        <textarea class="form-control" id="remark" rows="5" ></textarea>
+                    </div>
+                </div>
+            </fieldset>
+            <fieldset>
+                <legend>联系方式</legend>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label" for="userName"> 姓名：</label>
+                    <div class="col-sm-4">
+                        <input class="form-control" id="userName" type="text" placeholder=""/>
+                    </div>
+                    <label class="col-sm-2 control-label" for="mobile">电话：</label>
+                    <div class="col-sm-4">
+                        <input class="form-control" id="mobile" type="text" placeholder=""/>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="col-sm-2 control-label" for="qq"> Q Q：</label>
+                    <div class="col-sm-4">
+                        <input class="form-control" id="qq" type="text" placeholder=""/>
+                    </div>
+
+                    <label class="col-sm-2 control-label" for="mail">邮箱：</label>
+                    <div class="col-sm-4">
+                        <input class="form-control" id="mail" type="text" placeholder=""/>
+                    </div>
+                </div>
+            </fieldset>
+            <div style="margin:0 auto; height:100px; border:0px solid #F00">
+                <input type="button" class="btn btn-success" id="commit" value="提交"/>
+            </div>
+        </form>
+
+    </div>
+
+ {ms:include filename=footer.htm/}
+</body>
+</html>
+
+
+<script>
+    $('label[islab=true]').click(function(){
+        var f=$(this).attr('for');
+        $('label[for='+f+']').removeClass('checked');
+        $(this).addClass('checked');
+        $('input[name='+f+']').removeAttr('checked');
+        $(this).prev('input').attr('checked',true);
+    });
+
+    var flag = false;
+    $("#commit").click(function() {
+        if (!flag) {
+            $.ajax({
+                type: "POST",
+                url: "/mdiy/diyForm/f2c131968438246e885e0feed7256dbc.do",
+                data: {
+                    protectName:$('#protectName').val(),
+                    productType:$('#productType').val(),
+                    protectDesc:$('#protectDesc').val(),
+                    remark:$('#remark').val(),
+                    userName:$('#userName').val(),
+                    mobile:$('#mobile').val(),
+                    qq:$('#qq').val(),
+                    mail:$('#mail').val()
+                },
+                success: function(msg){
+                    flag = true;
+                    alert("提交成功");
+                }
+            });
+        } else {
+            alert("您已经提交过了！");
+        }
+    });
+</script>
+
+
+

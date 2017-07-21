@@ -1,0 +1,1067 @@
+<!DOCTYPE html >
+<html >
+<head>
+    {ms:include filename=head.htm/}
+</head>
+
+<body id="body">
+
+<link rel="stylesheet" type="text/css" href="{ms:globalskin.url/}css/index.css">
+<script>
+    devicePixelRatio = Math.min($.type(window.devicePixelRatio) !== 'undefined' ? window.devicePixelRatio : 1, 1.6);
+</script>
+<link rel="stylesheet" type="text/css" href="{ms:globalskin.url/}css/style.css">
+<style>
+    .appMask{
+        display:none;
+    }
+</style>
+
+<div id="layout" class="layout">
+    <div id="wrapper" class="wrapper" path="wrapper" static="root" data-del="false">
+        <div id="container" class="container" path="container" static="wrapper" data-del="false">
+            <!--header-->
+            {ms:include filename=header.htm/}
+            <div id="main" class="main" path="main" static="root" data-del="false" setstyle="true">
+                <div id="mainWrapper" class="mainWrapper" path="wrapper" static="main" data-del="false">
+                    <div id="mainContainer" class="mainContainer" path="container" static="mainWrapper" data-del="false">
+                        <!--start 轮播-->
+                        <div class="row" role="dragEl" path="row" id="el_14678840768693b8b2" setstyle="true">
+                            <div class="rowPatch">
+                                <div class="span12">
+                                    <div class="boxBlock">
+                                        <div class="elementContainer" path="column" id="el_1467884076865m7pc1">
+                                            <div class="appWrapper hide_480_767 hide_max479"  path="app" role="dragEl" id="app_5125507902398135">
+                                                <div class="appMask"></div>
+                                                <div class="sliderBlock">
+                                                    <div class="container">
+                                                        <link rel="stylesheet" type="text/css" href="{ms:globalskin.url/}css/index_container.css">
+                                                        <!--轮播-->
+                                                        <div class="swiper-container sliderBlock_wrapper sliderBlock_ready" id="slider_app_5125507902398135">
+                                                            <div class="swiper-wrapper">
+
+                                                                {ms:arclist typeid=164 flag=f orderby=sort order=desc size =3 }
+
+                                                                <div class="swiper-slide">
+                                                                    <div class="swiper-wrapper-list">
+                                                                        <div class="swiper-pic">
+                                                                            <img data-src="[field.litpic/]"  class="responsiveImage" style="width:100%;" data-lazyload="no">
+                                                                            <div class="swiper-text"></div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                {/ms:arclist}
+                                                            </div>
+                                                            <div class="pagination" style=""></div>
+                                                        </div>
+                                                        <script>
+                                                            var items = [];
+                                                            var index = 0;
+                                                        </script>
+                                                        {ms:arclist typeid=164 flag=f orderby=sort order=desc size =3 }
+                                                        <input type="hidden" id = "item_index_[field.index/]" value="[field.litpic/]">
+                                                        <script>
+                                                            var item_src = $('#item_index_' + index+1).val();
+                                                            if(!item_src){
+                                                                items[index] = '{"src":"' + item_src + '"}';
+                                                            }
+                                                            index ++;
+
+                                                        </script>
+                                                        {/ms:arclist}
+                                                        <script>
+                                                            ;
+                                                            (function ($) {
+                                                                var id = 'app_5125507902398135',
+                                                                    idangerousJs = '{ms:globalskin.url/}js/swiper-3.3.1.jquery.min.js',
+                                                                    slideCss='{ms:globalskin.url/}css/swiper-3.3.1.min.css',
+                                                                    isIe8 = '',
+                                                                    silder = '#slider_app_5125507902398135',
+                                                                    effect = '3',//切换效果
+                                                                    loop = '1',//是否循环
+                                                                    mode = 'horizontal',//垂直水平
+                                                                    imgs=$('img.responsiveImage',silder),
+                                                                    loaded=0;
+                                                                if(navigator.appName == "Microsoft Internet Explorer" && navigator.appVersion.match(/8./i)=="8."||mode=='vertical'){
+                                                                    isIe8 = true;
+                                                                }else{
+                                                                    isIe8 = false;
+                                                                };
+                                                                if(isIe8){
+                                                                    idangerousJs = '{ms:globalskin.url/}js/idangerous.swiper.min.js',
+                                                                        slideCss='{ms:globalskin.url/}css/idangerous.swiper.css';
+                                                                };
+
+                                                                responsiveImage(silder+' div.swiper-pic:first');
+                                                                //var items = [{"src":"146788398841323.jpg","title":"","content":"","href":""},{"src":"146788398841323.jpg","title":"","content":"","href":""}];
+                                                                appReady[id] = {
+                                                                    resources: [slideCss,idangerousJs],
+                                                                    onReady: function () {
+                                                                        $(silder).removeClass('sliderBlock_ready');
+                                                                        responsiveImage($(silder+' div.swiper-pic:gt(0)'),true);
+                                                                        var isShow = '0',
+                                                                            button = '1',//按钮显示方式，0不显示，1圆点，2缩略图
+                                                                            paginationBulletRender='',
+                                                                            setShow = false;
+                                                                        if(customMode||isShow=='0'||(isShow=='1'&&!isPhoneState)||(isShow=='2'&&isPhoneState)){
+                                                                            setShow = true;
+                                                                        };
+                                                                        if(button=='2'){
+                                                                            var setProportion = "0",
+                                                                                crop='0',
+                                                                                ratio=false;
+                                                                            if(setProportion&&setProportion!='0'){
+                                                                                crop='1';
+                                                                                ratio=true;
+                                                                            };
+                                                                            paginationBulletRender = function (index, className) {
+                                                                                return '<a href="javascript:;" class="'+className+'"><div class="imgItem"><img data-src="'+ items[index]['src']+'" class="responsiveImage"'+(ratio?'data-ratio=""':'')+'data-crop="'+crop+'"/></div></a>';
+
+                                                                            };
+                                                                        };
+                                                                        if(setShow){
+                                                                            switch(effect){
+                                                                                case'0':
+                                                                                    effect = 'slide';
+                                                                                    break;
+                                                                                case'1':
+                                                                                    effect = 'fade';
+                                                                                    break;
+                                                                                case'2':
+                                                                                    effect = 'cube';
+                                                                                    break;
+                                                                                case'3':
+                                                                                    effect = 'coverflow';
+                                                                                    break;
+                                                                                case'4':
+                                                                                    effect = 'flip';
+                                                                                    break;
+                                                                            };
+
+                                                                            var mySwiper = new Swiper(silder, {
+                                                                                pagination: silder + ' .pagination',
+                                                                                paginationClickable: true,
+                                                                                grabCursor: true,
+                                                                                resizeReInit: true,
+                                                                                loop:loop,
+                                                                                slidesPerView: 1,
+                                                                                calculateHeight: true,
+                                                                                autoplay: 2000,
+                                                                                effect:effect,
+                                                                                speed:1500,
+                                                                                mode:mode,
+                                                                                direction:mode,
+                                                                                autoplayDisableOnInteraction:false,
+                                                                                paginationBulletRender: paginationBulletRender
+                                                                            });
+
+                                                                            Swiper[id]=mySwiper;
+
+                                                                            $(silder + ' .arrow-left').on(click, function (e) {
+                                                                                e.preventDefault();
+                                                                                if(isIe8){
+                                                                                    mySwiper.swipePrev();
+                                                                                }else{
+                                                                                    mySwiper.slidePrev();
+                                                                                };
+                                                                            });
+                                                                            $(silder + ' .arrow-right').on(click, function (e) {
+                                                                                e.preventDefault();
+                                                                                if(isIe8){
+                                                                                    mySwiper.swipeNext();
+                                                                                }else{
+                                                                                    mySwiper.slideNext();
+
+                                                                                };
+                                                                            });
+                                                                            $(silder).show();
+
+                                                                            var resize=function(){
+                                                                                if(isIe8){
+                                                                                    mySwiper.resizeFix();
+                                                                                }else{
+                                                                                    mySwiper.onResize();
+                                                                                };
+                                                                            };
+
+                                                                            $(silder).data('resize',resize);
+                                                                            // setTimeout(resize,300);
+
+                                                                            if(imgs.length){
+                                                                                if(imgs[0].complete){
+                                                                                    resize();
+                                                                                }else{
+                                                                                    imgs.first().loadImg(resize);
+                                                                                };
+                                                                            }else{
+                                                                                resize();
+                                                                            };
+                                                                        }else{
+                                                                            $(silder).remove();
+                                                                        };
+                                                                    }
+                                                                };
+                                                            })(jQuery);
+                                                        </script>
+                                                    </div>
+                                                    <script>
+                                                        ;(function($){
+                                                            appInit("app_5125507902398135",{"addClass":{"self":" hide_480_767 hide_max479",".pagination":""}});
+                                                        })(jQuery);
+                                                    </script>
+                                                </div>
+                                            </div>
+                                            <div class="appWrapper hide_basic show_480_767 show_max479" data-events='' path="app" role="dragEl" id="el_1467885224493qu2s19">
+                                                <div class="appMask"></div>
+                                                <div class="sliderBlock">
+                                                    <div class="container">
+                                                        <style>
+                                                            .swiper-container{overflow:hidden !important;}.swiper-wrapper-list,.swiper-pic,.swiper-text{margin-left:auto;margin-right:auto}.swiper-container:hover .arrow{opacity:1}.swiper-container .arrow{width:40px;height:40px;border-radius:40px;margin-top:-20px;position:absolute;top:50%;z-index:99;overflow:hidden;line-height:5pc;text-indent:-99em;text-align:center;opacity:0;cursor:pointer;background:rgba(0,0,0,.3);text-shadow:1px 1px 0 hsla(0,0%,100%,.3);-webkit-transition:all .3s ease;transition:all .3s ease}.swiper-container .arrow:after{width:9pt;height:9pt;display:block;position:absolute;left:14px;top:14px;border-width:3px 3px 0 0;border-style:solid;border-color:#fff #fff transparent transparent;opacity:.7;content:""}.swiper-container .arrow-left{left:10px;-webkit-transform:rotate(225deg);transform:rotate(225deg)}.swiper-container .arrow-right{right:10px;-webkit-transform:rotate(45deg);transform:rotate(45deg)}
+                                                            .paginationImg .swiper-pagination-bullet{
+                                                                text-align: center;
+                                                                border-radius: 0;
+                                                                opacity: .8;
+                                                                background:transparent;
+                                                                width:20%;
+                                                                height:auto;
+                                                            }
+                                                            .swiper-container .pagination{
+                                                                margin:auto;
+                                                            }
+                                                            .swiper-container-horizontal >.paginationImg.swiper-pagination-bullets .swiper-pagination-bullet{
+                                                                margin:0;
+                                                            }
+                                                            .paginationImg .swiper-pagination-bullet-active{
+                                                                opacity: 1;
+                                                            }
+                                                            .sliderBlock_ready .swiper-slide+.swiper-slide{
+                                                                display:none;
+                                                            }
+                                                        </style>
+                                                        <div class="swiper-container sliderBlock_wrapper sliderBlock_ready" id="slider_el_1467885224493qu2s19">
+                                                            <div class="swiper-wrapper">
+                                                                {ms:arclist typeid=164 flag=f orderby=sort order=desc size =3 }
+                                                                <div class="swiper-slide">
+                                                                    <div class="swiper-wrapper-list">
+                                                                        <div class="swiper-pic">
+                                                                            <img data-src="[field.litpic/]"  class="responsiveImage" style="width:100%;" data-lazyload="no">
+                                                                            <div class="swiper-text"></div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                {/ms:arclist}
+                                                            </div>
+                                                            <div class="pagination" style=""></div>
+                                                        </div>
+
+                                                        <script>
+                                                            (function ($) {
+                                                                var id = 'el_1467885224493qu2s19',
+                                                                    idangerousJs = '{ms:globalskin.url/}js/swiper-3.3.1.jquery.min.js',
+                                                                    slideCss='{ms:globalskin.url/}css/swiper-3.3.1.min.css',
+                                                                    isIe8 = '',
+                                                                    silder = '#slider_el_1467885224493qu2s19',
+                                                                    effect = '3',//切换效果
+                                                                    loop = '1',//是否循环
+                                                                    mode = 'horizontal',//垂直水平
+                                                                    imgs=$('img.responsiveImage',silder),
+                                                                    loaded=0;
+                                                                if(navigator.appName == "Microsoft Internet Explorer" && navigator.appVersion.match(/8./i)=="8."||mode=='vertical'){
+                                                                    isIe8 = true;
+                                                                }else{
+                                                                    isIe8 = false;
+                                                                };
+                                                                if(isIe8){
+                                                                    idangerousJs = '{ms:globalskin.url/}js/idangerous.swiper.min.js',
+                                                                        slideCss='{ms:globalskin.url/}css/idangerous.swiper.css';
+                                                                };
+
+                                                                responsiveImage(silder+' div.swiper-pic:first');
+
+                                                                //var items = [{"src":"146788512596400.jpg","title":"","content":"","href":""},{"src":"146788512596400.jpg","title":"","content":"","href":""}];
+                                                                appReady[id] = {
+                                                                    resources: [slideCss,idangerousJs],
+                                                                    onReady: function () {
+                                                                        $(silder).removeClass('sliderBlock_ready');
+                                                                        responsiveImage($(silder+' div.swiper-pic:gt(0)'),true);
+                                                                        var isShow = '0',
+                                                                            button = '1',//按钮显示方式，0不显示，1圆点，2缩略图
+                                                                            paginationBulletRender='',
+                                                                            setShow = false;
+                                                                        if(customMode||isShow=='0'||(isShow=='1'&&!isPhoneState)||(isShow=='2'&&isPhoneState)){
+                                                                            setShow = true;
+                                                                        };
+                                                                        if(button=='2'){
+                                                                            var setProportion = "0",
+                                                                                crop='0',
+                                                                                ratio=false;
+                                                                            if(setProportion&&setProportion!='0'){
+                                                                                crop='1';
+                                                                                ratio=true;
+                                                                            };
+                                                                            paginationBulletRender = function (index, className) {
+                                                                                return '<a href="javascript:;" class="'+className+'"><div class="imgItem"><img data-src="'+ items[index]['src']+'" class="responsiveImage"'+(ratio?'data-ratio=""':'')+'data-crop="'+crop+'"/></div></a>';
+
+                                                                            };
+                                                                        };
+                                                                        if(setShow){
+                                                                            switch(effect){
+                                                                                case'0':
+                                                                                    effect = 'slide';
+                                                                                    break;
+                                                                                case'1':
+                                                                                    effect = 'fade';
+                                                                                    break;
+                                                                                case'2':
+                                                                                    effect = 'cube';
+                                                                                    break;
+                                                                                case'3':
+                                                                                    effect = 'coverflow';
+                                                                                    break;
+                                                                                case'4':
+                                                                                    effect = 'flip';
+                                                                                    break;
+                                                                            };
+
+                                                                            var mySwiper = new Swiper(silder, {
+                                                                                pagination: silder + ' .pagination',
+                                                                                paginationClickable: true,
+                                                                                grabCursor: true,
+                                                                                resizeReInit: true,
+                                                                                loop:loop,
+                                                                                slidesPerView: 1,
+                                                                                calculateHeight: true,
+                                                                                autoplay: 2000,
+                                                                                effect:effect,
+                                                                                speed:1500,
+                                                                                mode:mode,
+                                                                                direction:mode,
+                                                                                autoplayDisableOnInteraction:false,
+                                                                                paginationBulletRender: paginationBulletRender
+                                                                            });
+
+                                                                            Swiper[id]=mySwiper;
+
+                                                                            $(silder + ' .arrow-left').on(click, function (e) {
+                                                                                e.preventDefault();
+                                                                                if(isIe8){
+                                                                                    mySwiper.swipePrev();
+                                                                                }else{
+                                                                                    mySwiper.slidePrev();
+                                                                                };
+                                                                            });
+                                                                            $(silder + ' .arrow-right').on(click, function (e) {
+                                                                                e.preventDefault();
+                                                                                if(isIe8){
+                                                                                    mySwiper.swipeNext();
+                                                                                }else{
+                                                                                    mySwiper.slideNext();
+
+                                                                                };
+                                                                            });
+                                                                            $(silder).show();
+
+                                                                            var resize=function(){
+                                                                                if(isIe8){
+                                                                                    mySwiper.resizeFix();
+                                                                                }else{
+                                                                                    mySwiper.onResize();
+                                                                                };
+                                                                            };
+
+                                                                            $(silder).data('resize',resize);
+                                                                            // setTimeout(resize,300);
+
+                                                                            if(imgs.length){
+                                                                                if(imgs[0].complete){
+                                                                                    resize();
+                                                                                }else{
+                                                                                    imgs.first().loadImg(resize);
+                                                                                };
+                                                                            }else{
+                                                                                resize();
+                                                                            };
+                                                                        }else{
+                                                                            $(silder).remove();
+                                                                        };
+                                                                    }
+                                                                };
+                                                            })(jQuery);
+                                                        </script>
+                                                    </div>
+                                                    <script>
+                                                        ;(function($){
+                                                            appInit("el_1467885224493qu2s19",{"addClass":{"self":" hide_basic show_480_767 show_max479",".pagination":""}});
+                                                        })(jQuery);
+                                                    </script>
+                                                </div> <!--end sliderBlock-->
+                                            </div>
+                                        </div> <!--end elementContainer-->
+                                    </div> <!--end boxBlock -->
+                                </div>
+                            </div> <!--end rowPatch-->
+                        </div> <!--end 轮播-->
+
+                        <!--中间三幅-->
+                        <div class="row" role="dragEl" path="row" id="el_14678846556647c273" setstyle="true" data-layout="{&quot;basic&quot;:&quot;4_4_4&quot;,&quot;768_960&quot;:3,&quot;480_767&quot;:&quot;3&quot;,&quot;max479&quot;:&quot;1&quot;}" column_768_960="3" column_480_767="3" column_max479="1">
+                            <div class="rowPatch">
+                                <div class="span4">
+                                    <div class="boxBlock">
+                                        <div class="elementContainer" path="column" id="el_1467884779765n2hk4">
+                                            <div class="appWrapper" data-events="" data-content="html" role="dragEl" path="app" id="app_3254202049602848" data-data="{&quot;id&quot;:&quot;image&quot;,&quot;name&quot;:&quot;\u56fe\u7247&quot;,&quot;type&quot;:&quot;element&quot;,&quot;sole&quot;:&quot;0&quot;,&quot;options&quot;:{&quot;src&quot;:&quot;146788467644768.jpg&quot;,&quot;phonesrc&quot;:&quot;&quot;,&quot;responsive&quot;:&quot;0&quot;},&quot;styles&quot;:[],&quot;random&quot;:&quot;3254202049602848&quot;,&quot;addClass&quot;:[]}" data-appid="image" data-type="element" setstyle="true">
+                                                <div class="appMask"></div>
+                                                <div class="appContent">
+                                                    <div class="image">
+                                                        <div class="container"><!--链接不为空时加a-->
+                                                            <img src="http://okgo.top/146788467644768.jpg" data-src="http://okgo.top/146788467644768.jpg" data-phonesrc="" alt="">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="appWrapper" data-events="" data-content="html" role="dragEl" path="app" id="app_7244146621859105" data-data="{&quot;id&quot;:&quot;paragraph&quot;,&quot;name&quot;:&quot;\u6bb5\u843d&quot;,&quot;type&quot;:&quot;element&quot;,&quot;sole&quot;:&quot;0&quot;,&quot;options&quot;:[],&quot;styles&quot;:[],&quot;random&quot;:&quot;7244146621859105&quot;,&quot;addClass&quot;:[]}" data-appid="paragraph" data-type="element" setstyle="true">
+                                                <div class="appMask"></div>
+                                                <div class="appContent">
+                                                    <div class="paragraph">
+                                                        <div class="container">
+                                                            <div class="con_body">
+                                                                <article>
+                                                                    <div role="editor"><p>公司简介</p></div>
+                                                                </article>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="appWrapper" data-events="" data-content="html" role="dragEl" path="app" id="app_3460173657123368" data-data="{&quot;id&quot;:&quot;paragraph&quot;,&quot;name&quot;:&quot;\u6bb5\u843d&quot;,&quot;type&quot;:&quot;element&quot;,&quot;sole&quot;:&quot;0&quot;,&quot;options&quot;:[],&quot;styles&quot;:[],&quot;random&quot;:&quot;3460173657123368&quot;,&quot;addClass&quot;:[]}" data-appid="paragraph" data-type="element" setstyle="true">
+                                                <div class="appMask"></div>
+                                                <div class="appContent">
+                                                    <div class="paragraph">
+                                                        <div class="container">
+                                                            <div class="con_body">
+                                                                <article>
+                                                                    <div role="editor" class="">
+                                                                        <p>“中国天然气集团有限公司”（香港交易所股票编号：931）是一家致力于推动清洁能源—天然气的应用，香港上市公司。</p>
+                                                                    </div>
+                                                                </article>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="span4">
+                                    <div class="boxBlock">
+                                        <div class="elementContainer" path="column" id="el_1467884880560nteb7">
+                                            <div class="appWrapper" data-events="" data-content="html" role="dragEl" path="app" id="el_146788488122232mm8" data-data="{&quot;id&quot;:&quot;image&quot;,&quot;name&quot;:&quot;\u56fe\u7247&quot;,&quot;type&quot;:&quot;element&quot;,&quot;sole&quot;:&quot;0&quot;,&quot;options&quot;:{&quot;src&quot;:&quot;146788484226378.jpg&quot;,&quot;phonesrc&quot;:&quot;&quot;,&quot;responsive&quot;:&quot;0&quot;},&quot;styles&quot;:[],&quot;random&quot;:&quot;el_146788488122232mm8&quot;,&quot;addClass&quot;:[]}" data-appid="image" data-type="element" setstyle="true">
+                                                <div class="appMask"></div>
+                                                <div class="appContent">
+                                                    <div class="image">
+                                                        <div class="container"><!--链接不为空时加a-->
+                                                            <img src="http://okgo.top/146788484226378.jpg" data-src="http://okgo.top/146788484226378.jpg" data-phonesrc="" alt="">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="appWrapper" data-events="" data-content="html" role="dragEl" path="app" id="el_14678848864324u9d11" data-data="{&quot;id&quot;:&quot;paragraph&quot;,&quot;name&quot;:&quot;\u6bb5\u843d&quot;,&quot;type&quot;:&quot;element&quot;,&quot;sole&quot;:&quot;0&quot;,&quot;options&quot;:[],&quot;styles&quot;:[],&quot;random&quot;:&quot;7244146621859105&quot;,&quot;addClass&quot;:[]}" data-appid="paragraph" data-type="element" setstyle="true">
+                                                <div class="appMask"></div>
+                                                <div class="appContent">
+                                                    <div class="paragraph">
+                                                        <div class="container">
+                                                            <div class="con_body">
+                                                                <article>
+                                                                    <div role="editor" class=""><p>企业宗旨</p></div>
+                                                                </article>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="appWrapper" data-events="" data-content="html" role="dragEl" path="app" id="el_1467884889275deg112" data-data="{&quot;id&quot;:&quot;paragraph&quot;,&quot;name&quot;:&quot;\u6bb5\u843d&quot;,&quot;type&quot;:&quot;element&quot;,&quot;sole&quot;:&quot;0&quot;,&quot;options&quot;:[],&quot;styles&quot;:[],&quot;random&quot;:&quot;3460173657123368&quot;,&quot;addClass&quot;:[]}" data-appid="paragraph" data-type="element" setstyle="true">
+                                                <div class="appMask"></div>
+                                                <div class="appContent">
+                                                    <div class="paragraph">
+                                                        <div class="container">
+                                                            <div class="con_body">
+                                                                <article>
+                                                                    <div role="editor" class=""><p>以融资租赁为撬棒，治理雾霾的效果。</p></div>
+                                                                </article>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                                <div class="span4">
+                                    <div class="boxBlock">
+                                        <div class="elementContainer" path="column" id="el_146788488301031os9">
+                                            <div class="appWrapper" data-events="" data-content="html" role="dragEl" path="app" id="el_1467884883777e3cf10" data-data="{&quot;id&quot;:&quot;image&quot;,&quot;name&quot;:&quot;\u56fe\u7247&quot;,&quot;type&quot;:&quot;element&quot;,&quot;sole&quot;:&quot;0&quot;,&quot;options&quot;:{&quot;src&quot;:&quot;146788485230391.jpg&quot;,&quot;phonesrc&quot;:&quot;&quot;,&quot;responsive&quot;:&quot;0&quot;},&quot;styles&quot;:[],&quot;random&quot;:&quot;el_1467884883777e3cf10&quot;,&quot;addClass&quot;:[]}" data-appid="image" data-type="element" setstyle="true">
+                                                <div class="appMask"></div>
+                                                <div class="appContent">
+                                                    <div class="image">
+                                                        <div class="container"><!--链接不为空时加a-->
+                                                            <img src="http://okgo.top/146788485230391.jpg" data-src="http://okgo.top/146788485230391.jpg" data-phonesrc="" alt="">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="appWrapper" data-events="" data-content="html" role="dragEl" path="app" id="el_1467884897746ixr314" data-data="{&quot;id&quot;:&quot;paragraph&quot;,&quot;name&quot;:&quot;\u6bb5\u843d&quot;,&quot;type&quot;:&quot;element&quot;,&quot;sole&quot;:&quot;0&quot;,&quot;options&quot;:[],&quot;styles&quot;:[],&quot;random&quot;:&quot;7244146621859105&quot;,&quot;addClass&quot;:[]}" data-appid="paragraph" data-type="element" setstyle="true">
+                                                <div class="appMask"></div>
+                                                <div class="appContent">
+                                                    <div class="paragraph">
+                                                        <div class="container">
+                                                            <div class="con_body">
+                                                                <article>
+                                                                    <div role="editor" class=""><p>经营理念</p></div>
+                                                                </article>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="appWrapper" data-events="" data-content="html" role="dragEl" path="app" id="el_14678848952971yjp13" data-data="{&quot;id&quot;:&quot;paragraph&quot;,&quot;name&quot;:&quot;\u6bb5\u843d&quot;,&quot;type&quot;:&quot;element&quot;,&quot;sole&quot;:&quot;0&quot;,&quot;options&quot;:[],&quot;styles&quot;:[],&quot;random&quot;:&quot;3460173657123368&quot;,&quot;addClass&quot;:[]}" data-appid="paragraph" data-type="element" setstyle="true">
+                                                <div class="appMask"></div>
+                                                <div class="appContent">
+                                                    <div class="paragraph">
+                                                        <div class="container">
+                                                            <div class="con_body">
+                                                                <article>
+                                                                    <div role="editor" class=""><p>通促进天然气对石油产品的替代使用。</p></div>
+                                                                </article>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div> <!--end span4-->
+                            </div> <!---end rowPatch-->
+                        </div> <!--end row-->
+
+                        <!--中间横幅-->
+                        <div class="row" role="dragEl" path="row" id="el_1467885766318e9y121" setstyle="true">
+                            <div class="rowPatch">
+                                <div class="span12">
+                                    <div class="boxBlock">
+                                        <div class="elementContainer" path="column" id="el_1467885766315deqf20" setstyle="true">
+                                            <div class="appWrapper" data-events="" data-content="html" role="dragEl" path="app" id="app_9836159720788456" data-data="{&quot;id&quot;:&quot;paragraph&quot;,&quot;name&quot;:&quot;\u6bb5\u843d&quot;,&quot;type&quot;:&quot;element&quot;,&quot;sole&quot;:&quot;0&quot;,&quot;options&quot;:[],&quot;styles&quot;:[],&quot;random&quot;:&quot;9836159720788456&quot;,&quot;addClass&quot;:[]}" data-appid="paragraph" data-type="element" setstyle="true">
+                                                <div class="appMask"></div>
+                                                <div class="appContent">
+                                                    <div class="paragraph">
+                                                        <div class="container">
+                                                            <div class="con_body">
+                                                                <article>
+                                                                    <div role="editor"><p>将来即现在　行动创未来</p></div>
+                                                                </article>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="appWrapper" data-events="" data-content="html" role="dragEl" path="app" id="app_5184211936463927" data-data="{&quot;id&quot;:&quot;paragraph&quot;,&quot;name&quot;:&quot;\u6bb5\u843d&quot;,&quot;type&quot;:&quot;element&quot;,&quot;sole&quot;:&quot;0&quot;,&quot;options&quot;:[],&quot;styles&quot;:[],&quot;random&quot;:&quot;5184211936463927&quot;,&quot;addClass&quot;:[]}" data-appid="paragraph" data-type="element" setstyle="true">
+                                                <div class="appMask"></div>
+                                                <div class="appContent">
+                                                    <div class="paragraph">
+                                                        <div class="container">
+                                                            <div class="con_body">
+                                                                <article>
+                                                                    <div role="editor"><p>THE PRESENT ACTION AND FUTURE IN THE FUTURE</p></div>
+                                                                </article>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="appWrapper" data-events="" data-content="html" role="dragEl" path="app" id="app_4086507821112206" data-data="{&quot;id&quot;:&quot;image&quot;,&quot;name&quot;:&quot;\u56fe\u7247&quot;,&quot;type&quot;:&quot;element&quot;,&quot;sole&quot;:&quot;0&quot;,&quot;options&quot;:{&quot;src&quot;:&quot;146788596537037.png&quot;,&quot;phonesrc&quot;:&quot;&quot;,&quot;responsive&quot;:&quot;0&quot;},&quot;styles&quot;:[],&quot;random&quot;:&quot;4086507821112206&quot;,&quot;addClass&quot;:[]}" data-appid="image" data-type="element">
+                                                <div class="appMask"></div>
+                                                <div class="appContent">
+                                                    <div class="image">
+                                                        <div class="container"><!--链接不为空时加a-->
+                                                            <img src="http://okgo.top/146788596537037.png" data-src="http://okgo.top/146788596537037.png" data-phonesrc="" alt="">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div> <!--end row-->
+                        <!--横幅大图-->
+                        <div class="row" role="dragEl" path="row" id="el_1468290060450sd4x3" setstyle="true" data-layout="{&quot;basic&quot;:&quot;4_4_4&quot;,&quot;768_960&quot;:3,&quot;480_767&quot;:&quot;3&quot;,&quot;max479&quot;:&quot;1&quot;}" column_768_960="3" column_480_767="3" column_max479="1">
+                            <div class="rowPatch">
+                                <!--图1-->
+                                <div class="span4">
+                                    <div class="boxBlock">
+                                        <div class="elementContainer" path="column" id="el_1468290978528tm3h33" setstyle="true" data-events="{&quot;mouseleave&quot;:{&quot;hide&quot;:{&quot;el_14682909785292bwm38&quot;:{&quot;animations&quot;:&quot;fadeOut&quot;}}}}">
+                                            <div class="row" role="dragEl" path="row" id="el_1468290978528c5r734" setstyle="true" data-events="{&quot;mouseenter&quot;:{&quot;show&quot;:{&quot;el_14682909785292bwm38&quot;:{&quot;animations&quot;:&quot;slideDown&quot;}}}}">
+                                                <div class="rowPatch">
+                                                    <div class="span12">
+                                                        <div class="boxBlock">
+                                                            <div class="elementContainer" path="column" id="el_14682909785288uep35">
+                                                                <div class="appWrapper" data-events="" data-content="html" role="dragEl" path="app" id="el_1468290978528hyec36" data-data="{&quot;id&quot;:&quot;image&quot;,&quot;name&quot;:&quot;\u56fe\u7247&quot;,&quot;type&quot;:&quot;element&quot;,&quot;sole&quot;:&quot;0&quot;,&quot;options&quot;:{&quot;src&quot;:&quot;146788663525376.jpg&quot;,&quot;phonesrc&quot;:&quot;&quot;,&quot;href&quot;:&quot;\/p-42.html&quot;,&quot;responsive&quot;:&quot;0&quot;},&quot;styles&quot;:[],&quot;random&quot;:&quot;el_1468290978528hyec36&quot;,&quot;addClass&quot;:[]}" data-appid="image" data-type="element">
+                                                                    <div class="appMask"></div>
+                                                                    <div class="appContent">
+                                                                        <div class="image">
+                                                                            <div class="container"><!--链接不为空时加a-->
+                                                                                <a href="/p-42.html">
+                                                                                    <img src="http://okgo.top/146788663525376.jpg" data-src="http://okgo.top/146788663525376.jpg" data-phonesrc="" alt="">
+                                                                                </a>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="appWrapper positionEl_basic" data-events="" data-content="html" role="dragEl" path="app" id="el_1468290978529tuaj37" data-data="{&quot;id&quot;:&quot;paragraph&quot;,&quot;name&quot;:&quot;\u6bb5\u843d&quot;,&quot;type&quot;:&quot;element&quot;,&quot;sole&quot;:&quot;0&quot;,&quot;options&quot;:[],&quot;styles&quot;:[],&quot;random&quot;:&quot;9375755623906677&quot;,&quot;addClass&quot;:[]}" data-appid="paragraph" data-type="element" setstyle="true">
+                                                                    <div class="appMask"></div>
+                                                                    <div class="appContent">
+                                                                        <div class="paragraph">
+                                                                            <div class="container">
+                                                                                <div class="con_body">
+                                                                                    <article>
+                                                                                        <div role="editor" class="">
+                                                                                            <p><a href="/p-42.html">港能租赁</a></p>
+                                                                                        </div>
+                                                                                    </article>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row hide_basic positionEl_basic" role="dragEl" path="row" id="el_14682909785292bwm38" setstyle="true">
+                                                <div class="rowPatch">
+                                                    <div class="span12">
+                                                        <div class="boxBlock">
+                                                            <div class="elementContainer" path="column" id="el_1468290978529wtel39">
+                                                                <div class="appWrapper" data-events="" data-content="html" role="dragEl" path="app" id="el_1468290978529hqry40" data-data="{&quot;id&quot;:&quot;paragraph&quot;,&quot;name&quot;:&quot;\u6bb5\u843d&quot;,&quot;type&quot;:&quot;element&quot;,&quot;sole&quot;:&quot;0&quot;,&quot;options&quot;:[],&quot;styles&quot;:[],&quot;random&quot;:&quot;9375755623906677&quot;,&quot;addClass&quot;:[]}" data-appid="paragraph" data-type="element" setstyle="true">
+                                                                    <div class="appMask"></div>
+                                                                    <div class="appContent">
+                                                                        <div class="paragraph">
+                                                                            <div class="container">
+                                                                                <div class="con_body">
+                                                                                    <article>
+                                                                                        <div role="editor"><p><a href="/p-42.html"><strong>港能租赁</strong></a></p></div>
+                                                                                    </article>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="appWrapper" data-events="" data-content="html" role="dragEl" path="app" id="el_1468292376356136d65" data-data="{&quot;id&quot;:&quot;paragraph&quot;,&quot;name&quot;:&quot;\u6bb5\u843d&quot;,&quot;type&quot;:&quot;element&quot;,&quot;sole&quot;:&quot;0&quot;,&quot;options&quot;:[],&quot;styles&quot;:[],&quot;random&quot;:&quot;0072067267089454&quot;,&quot;addClass&quot;:[]}" data-appid="paragraph" data-type="element" setstyle="true">
+                                                                    <div class="appMask"></div>
+                                                                    <div class="appContent">
+                                                                        <div class="paragraph">
+                                                                            <div class="container">
+                                                                                <div class="con_body">
+                                                                                    <article>
+                                                                                        <div role="editor" class=""><p>在全国推动天然气车辆、船舶及设备的融资租赁服务</p></div>
+                                                                                    </article>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="appWrapper" data-events="" data-content="html" role="dragEl" path="app" id="el_1468292352864nl5s61" data-data="{&quot;id&quot;:&quot;button&quot;,&quot;name&quot;:&quot;\u6309\u94ae&quot;,&quot;type&quot;:&quot;element&quot;,&quot;sole&quot;:&quot;0&quot;,&quot;options&quot;:{&quot;text&quot;:&quot;VIEW MORE&quot;,&quot;href&quot;:&quot;\/p-42.html&quot;},&quot;styles&quot;:[],&quot;random&quot;:&quot;el_1468292352864nl5s61&quot;,&quot;addClass&quot;:[]}" data-appid="button" data-type="element" setstyle="true">
+                                                                    <div class="appMask"></div>
+                                                                    <div class="appContent">
+                                                                        <div class="button">
+                                                                            <div class="container"><a href="/p-42.html" class="btn">VIEW MORE</a></div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!--图2-->
+                                <div class="span4">
+                                    <div class="boxBlock">
+                                        <div class="elementContainer" path="column" id="el_1468290971252nv6w23" setstyle="true" data-events="{&quot;mouseleave&quot;:{&quot;hide&quot;:{&quot;el_1468290971252u40k28&quot;:{&quot;animations&quot;:&quot;fadeOut&quot;}}}}">
+                                            <div class="row" role="dragEl" path="row" id="el_1468290971252a0hs24" setstyle="true" data-events="{&quot;mouseenter&quot;:{&quot;show&quot;:{&quot;el_1468290971252u40k28&quot;:{&quot;animations&quot;:&quot;slideDown&quot;}}}}">
+                                                <div class="rowPatch">
+                                                    <div class="span12">
+                                                        <div class="boxBlock">
+                                                            <div class="elementContainer" path="column" id="el_14682909712526wqy25">
+                                                                <div class="appWrapper" data-events="" data-content="html" role="dragEl" path="app" id="el_14682909712520i8m26" data-data="{&quot;id&quot;:&quot;image&quot;,&quot;name&quot;:&quot;\u56fe\u7247&quot;,&quot;type&quot;:&quot;element&quot;,&quot;sole&quot;:&quot;0&quot;,&quot;options&quot;:{&quot;src&quot;:&quot;146788685461679.jpg&quot;,&quot;phonesrc&quot;:&quot;&quot;,&quot;href&quot;:&quot;\/p-47.html&quot;,&quot;responsive&quot;:&quot;0&quot;},&quot;styles&quot;:[],&quot;random&quot;:&quot;el_14682909712520i8m26&quot;,&quot;addClass&quot;:[]}" data-appid="image" data-type="element">
+                                                                    <div class="appMask"></div>
+                                                                    <div class="appContent">
+                                                                        <div class="image">
+                                                                            <div class="container"><!--链接不为空时加a-->
+                                                                                <a href="/p-47.html">
+                                                                                    <img src="http://okgo.top/146788685461679.jpg" data-src="http://okgo.top/146788685461679.jpg" data-phonesrc="" alt="">
+                                                                                </a>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="appWrapper positionEl_basic" data-events="" data-content="html" role="dragEl" path="app" id="el_14682909712520x1h27" data-data="{&quot;id&quot;:&quot;paragraph&quot;,&quot;name&quot;:&quot;\u6bb5\u843d&quot;,&quot;type&quot;:&quot;element&quot;,&quot;sole&quot;:&quot;0&quot;,&quot;options&quot;:[],&quot;styles&quot;:[],&quot;random&quot;:&quot;9375755623906677&quot;,&quot;addClass&quot;:[]}" data-appid="paragraph" data-type="element" setstyle="true">
+                                                                    <div class="appMask"></div>
+                                                                    <div class="appContent">
+                                                                        <div class="paragraph">
+                                                                            <div class="container">
+                                                                                <div class="con_body">
+                                                                                    <article>
+                                                                                        <div role="editor" class=""><p><a href="/p-47.html">港能投资</a></p></div>
+                                                                                    </article>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="row hide_basic positionEl_basic" role="dragEl" path="row" id="el_1468290971252u40k28" setstyle="true">
+                                                <div class="rowPatch">
+                                                    <div class="span12">
+                                                        <div class="boxBlock">
+                                                            <div class="elementContainer" path="column" id="el_1468290971252408r29">
+                                                                <div class="appWrapper" data-events="" data-content="html" role="dragEl" path="app" id="el_1468290971252rcw030" data-data="{&quot;id&quot;:&quot;paragraph&quot;,&quot;name&quot;:&quot;\u6bb5\u843d&quot;,&quot;type&quot;:&quot;element&quot;,&quot;sole&quot;:&quot;0&quot;,&quot;options&quot;:[],&quot;styles&quot;:[],&quot;random&quot;:&quot;9375755623906677&quot;,&quot;addClass&quot;:[]}" data-appid="paragraph" data-type="element" setstyle="true">
+                                                                    <div class="appMask"></div>
+                                                                    <div class="appContent">
+                                                                        <div class="paragraph">
+                                                                            <div class="container">
+                                                                                <div class="con_body">
+                                                                                    <article>
+                                                                                        <div role="editor"><p><a href="/p-47.html"><strong>港能投资</strong></a></p></div>
+                                                                                    </article>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="appWrapper" data-events="" data-content="html" role="dragEl" path="app" id="el_14682923569951kc162" data-data="{&quot;id&quot;:&quot;paragraph&quot;,&quot;name&quot;:&quot;\u6bb5\u843d&quot;,&quot;type&quot;:&quot;element&quot;,&quot;sole&quot;:&quot;0&quot;,&quot;options&quot;:[],&quot;styles&quot;:[],&quot;random&quot;:&quot;0072067267089454&quot;,&quot;addClass&quot;:[]}" data-appid="paragraph" data-type="element" setstyle="true">
+                                                                    <div class="appMask"></div>
+                                                                    <div class="appContent">
+                                                                        <div class="paragraph">
+                                                                            <div class="container">
+                                                                                <div class="con_body">
+                                                                                    <article>
+                                                                                        <div role="editor" class=""><p>对液化天然气加气站、点供站及分进行相关业务开展。</p></div>
+                                                                                    </article>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="appWrapper" data-events="" data-content="html" role="dragEl" path="app" id="el_1468292351092jtxm60" data-data="{&quot;id&quot;:&quot;button&quot;,&quot;name&quot;:&quot;\u6309\u94ae&quot;,&quot;type&quot;:&quot;element&quot;,&quot;sole&quot;:&quot;0&quot;,&quot;options&quot;:{&quot;text&quot;:&quot;VIEW MORE&quot;,&quot;href&quot;:&quot;\/p-47.html&quot;},&quot;styles&quot;:[],&quot;random&quot;:&quot;el_1468292351092jtxm60&quot;,&quot;addClass&quot;:[]}" data-appid="button" data-type="element" setstyle="true">
+                                                                    <div class="appMask"></div>
+                                                                    <div class="appContent">
+                                                                        <div class="button">
+                                                                            <div class="container"><a href="/p-47.html" class="btn">VIEW MORE</a></div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!--图3-->
+                                <div class="span4">
+                                    <div class="boxBlock">
+                                        <div class="elementContainer" path="column" id="el_1468290075349sby98" setstyle="true" data-events="{&quot;mouseleave&quot;:{&quot;hide&quot;:{&quot;el_1468290393828bh0a20&quot;:{&quot;animations&quot;:&quot;fadeOut&quot;}}}}">
+                                            <div class="row" role="dragEl" path="row" id="el_1468290249570jh6l18" setstyle="true" data-events="{&quot;mouseenter&quot;:{&quot;show&quot;:{&quot;el_1468290393828bh0a20&quot;:{&quot;animations&quot;:&quot;slideDown&quot;}}}}">
+                                                <div class="rowPatch">
+                                                    <div class="span12">
+                                                        <div class="boxBlock">
+                                                            <div class="elementContainer" path="column" id="el_1468290249569qiu517">
+                                                                <div class="appWrapper" data-events="" data-content="html" role="dragEl" path="app" id="el_146829007609953u49" data-data="{&quot;id&quot;:&quot;image&quot;,&quot;name&quot;:&quot;\u56fe\u7247&quot;,&quot;type&quot;:&quot;element&quot;,&quot;sole&quot;:&quot;0&quot;,&quot;options&quot;:{&quot;src&quot;:&quot;146788687030096.jpg&quot;,&quot;phonesrc&quot;:&quot;&quot;,&quot;href&quot;:&quot;\/p-41.html&quot;,&quot;responsive&quot;:&quot;0&quot;},&quot;styles&quot;:[],&quot;random&quot;:&quot;el_146829007609953u49&quot;,&quot;addClass&quot;:[]}" data-appid="image" data-type="element">
+                                                                    <div class="appMask"></div>
+                                                                    <div class="appContent">
+                                                                        <div class="image">
+                                                                            <div class="container"><!--链接不为空时加a-->
+                                                                                <a href="/p-41.html"><img src="http://okgo.top/146788687030096.jpg" data-src="http://okgo.top/146788687030096.jpg" data-phonesrc="" alt=""></a>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="appWrapper positionEl_basic" data-events="" data-content="html" role="dragEl" path="app" id="el_1468290220084duoq12" data-data="{&quot;id&quot;:&quot;paragraph&quot;,&quot;name&quot;:&quot;\u6bb5\u843d&quot;,&quot;type&quot;:&quot;element&quot;,&quot;sole&quot;:&quot;0&quot;,&quot;options&quot;:[],&quot;styles&quot;:[],&quot;random&quot;:&quot;9375755623906677&quot;,&quot;addClass&quot;:[]}" data-appid="paragraph" data-type="element" setstyle="true">
+                                                                    <div class="appMask"></div>
+                                                                    <div class="appContent">
+                                                                        <div class="paragraph">
+                                                                            <div class="container">
+                                                                                <div class="con_body">
+                                                                                    <article>
+                                                                                        <div role="editor"><p><a href="/p-41.html">港能服务</a></p></div>
+                                                                                    </article>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row hide_basic positionEl_basic" role="dragEl" path="row" id="el_1468290393828bh0a20" setstyle="true">
+                                                <div class="rowPatch">
+                                                    <div class="span12">
+                                                        <div class="boxBlock">
+                                                            <div class="elementContainer" path="column" id="el_1468290393826hdyi19">
+                                                                <div id="el_1468290393826hdyi19_style" data-styles="{}" style="display:none;"></div>
+                                                                <div class="appWrapper" data-events="" data-content="html" role="dragEl" path="app" id="el_1468290394595djd721" data-data="{&quot;id&quot;:&quot;paragraph&quot;,&quot;name&quot;:&quot;\u6bb5\u843d&quot;,&quot;type&quot;:&quot;element&quot;,&quot;sole&quot;:&quot;0&quot;,&quot;options&quot;:[],&quot;styles&quot;:[],&quot;random&quot;:&quot;9375755623906677&quot;,&quot;addClass&quot;:[]}" data-appid="paragraph" data-type="element" setstyle="true">
+                                                                    <div class="appMask"></div>
+                                                                    <div class="appContent">
+                                                                        <div class="paragraph">
+                                                                            <div class="container">
+                                                                                <div class="con_body">
+                                                                                    <article>
+                                                                                        <div role="editor" class=""><p><a href="/p-41.html">港能服务</a></p></div>
+                                                                                    </article>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="appWrapper" data-events="" data-content="html" role="dragEl" path="app" id="app_0072067267089454" data-data="{&quot;id&quot;:&quot;paragraph&quot;,&quot;name&quot;:&quot;\u6bb5\u843d&quot;,&quot;type&quot;:&quot;element&quot;,&quot;sole&quot;:&quot;0&quot;,&quot;options&quot;:[],&quot;styles&quot;:[],&quot;random&quot;:&quot;0072067267089454&quot;,&quot;addClass&quot;:[]}" data-appid="paragraph" data-type="element" setstyle="true">
+                                                                    <div class="appMask"></div>
+                                                                    <div class="appContent">
+                                                                        <div class="paragraph">
+                                                                            <div class="container">
+                                                                                <div class="con_body">
+                                                                                    <article>
+                                                                                        <div role="editor" class=""><p>致力国内天然气上站式O2O服务，企业愿景。</p></div>
+                                                                                    </article>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="appWrapper" data-events="" data-content="html" role="dragEl" path="app" id="app_6384083959421184" data-data="{&quot;id&quot;:&quot;button&quot;,&quot;name&quot;:&quot;\u6309\u94ae&quot;,&quot;type&quot;:&quot;element&quot;,&quot;sole&quot;:&quot;0&quot;,&quot;options&quot;:{&quot;text&quot;:&quot;VIEW MORE&quot;,&quot;href&quot;:&quot;\/p-41.html&quot;},&quot;styles&quot;:[],&quot;random&quot;:&quot;6384083959421184&quot;,&quot;addClass&quot;:[]}" data-appid="button" data-type="element" setstyle="true">
+                                                                    <div class="appMask"></div>
+                                                                    <div class="appContent">
+                                                                        <div class="button">
+                                                                            <div class="container">
+                                                                                <a href="/p-41.html" class="btn">VIEW MORE</a>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>  <!---end row-->
+                        <!--news-->
+                        <div class="row" role="dragEl" path="row" id="el_1468292460066fo9m69" setstyle="true">
+                            <div class="rowPatch">
+                                <div class="span12">
+                                    <div class="boxBlock">
+                                        <div class="elementContainer" path="column" id="el_1468292460066tsdq68" setstyle="true">
+                                            <!--COMPANY  NEWS-->
+                                            <div class="row" role="dragEl" path="row" id="el_14682925184254rce71" setstyle="true">
+                                                <div class="rowPatch">
+                                                    <div class="span12">
+                                                        <div class="boxBlock">
+                                                            <div class="elementContainer" path="column" id="el_1468292518414eggf70">
+                                                                <div class="appWrapper" data-events="" data-content="html" role="dragEl" path="app" id="app_7187470919982082" data-data="{&quot;id&quot;:&quot;paragraph&quot;,&quot;name&quot;:&quot;\u6bb5\u843d&quot;,&quot;type&quot;:&quot;element&quot;,&quot;sole&quot;:&quot;0&quot;,&quot;options&quot;:[],&quot;styles&quot;:[],&quot;random&quot;:&quot;7187470919982082&quot;,&quot;addClass&quot;:[]}" data-appid="paragraph" data-type="element" setstyle="true">
+                                                                    <div class="appMask"></div>
+                                                                    <div class="appContent">
+                                                                        <div class="paragraph">
+                                                                            <div class="container">
+                                                                                <div class="con_body">
+                                                                                    <article>
+                                                                                        <div role="editor" class=""><p>COMPANY &nbsp;NEWS</p></div>
+                                                                                    </article>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="appWrapper" data-events="" data-content="html" role="dragEl" path="app" id="app_9423766343019921" data-data="{&quot;id&quot;:&quot;line&quot;,&quot;name&quot;:&quot;\u6c34\u5e73\u7ebf&quot;,&quot;type&quot;:&quot;element&quot;,&quot;sole&quot;:&quot;0&quot;,&quot;options&quot;:{&quot;color&quot;:&quot;#cccccc&quot;},&quot;styles&quot;:[],&quot;random&quot;:&quot;9423766343019921&quot;,&quot;addClass&quot;:[]}" data-appid="line" data-type="element" setstyle="true">
+                                                                    <div class="appMask"></div>
+                                                                    <div class="appContent">
+                                                                        <div class="line">
+                                                                            <div class="container">
+                                                                                <div class="con_body">
+                                                                                    <hr style="height:0;border-width:0; border-top-width:1px;border-top-style:solid;border-top-color:#cccccc;">
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="appWrapper" data-events="" data-content="html" role="dragEl" path="app" id="app_0887000201891398" data-data="{&quot;id&quot;:&quot;paragraph&quot;,&quot;name&quot;:&quot;\u6bb5\u843d&quot;,&quot;type&quot;:&quot;element&quot;,&quot;sole&quot;:&quot;0&quot;,&quot;options&quot;:[],&quot;styles&quot;:[],&quot;random&quot;:&quot;0887000201891398&quot;,&quot;addClass&quot;:[]}" data-appid="paragraph" data-type="element" setstyle="true">
+                                                                    <div class="appMask"></div>
+                                                                    <div class="appContent">
+                                                                        <div class="paragraph">
+                                                                            <div class="container">
+                                                                                <div class="con_body">
+                                                                                    <article>
+                                                                                        <div role="editor" class=""><p>公司新闻</p></div>
+                                                                                    </article>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="appWrapper" data-events="" data-content="html" role="dragEl" path="app" id="el_1468292520739fxa672" data-data="{&quot;id&quot;:&quot;line&quot;,&quot;name&quot;:&quot;\u6c34\u5e73\u7ebf&quot;,&quot;type&quot;:&quot;element&quot;,&quot;sole&quot;:&quot;0&quot;,&quot;options&quot;:{&quot;color&quot;:&quot;#cccccc&quot;},&quot;styles&quot;:[],&quot;random&quot;:&quot;9423766343019921&quot;,&quot;addClass&quot;:[]}" data-appid="line" data-type="element" setstyle="true">
+                                                                    <div class="appMask"></div>
+                                                                    <div class="appContent">
+                                                                        <div class="line">
+                                                                            <div class="container">
+                                                                                <div class="con_body">
+                                                                                    <hr style="height:0;border-width:0; border-top-width:1px;border-top-style:solid;border-top-color:#cccccc;">
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!--news body-->
+                                            <div class="row" role="dragEl" path="row" id="el_1468295399379omp62" data-layout="{&quot;basic&quot;:&quot;6_6&quot;,&quot;768_960&quot;:2,&quot;480_767&quot;:&quot;1&quot;,&quot;max479&quot;:&quot;1&quot;}" column_768_960="2" column_480_767="1" column_max479="1" setstyle="true">
+                                                <div class="rowPatch">
+                                                    <!--news left-->
+                                                    <div class="span6">
+                                                        <div class="boxBlock">
+                                                            <div class="elementContainer" path="column" id="el_1468295399363gy601">
+                                                                <div class="appWrapper" data-events="" data-content="html" role="dragEl" path="app" id="app_3082959642787620" data-data="{&quot;id&quot;:&quot;image&quot;,&quot;name&quot;:&quot;\u56fe\u7247&quot;,&quot;type&quot;:&quot;element&quot;,&quot;sole&quot;:&quot;0&quot;,&quot;options&quot;:{&quot;src&quot;:&quot;146846498657145.jpg&quot;,&quot;phonesrc&quot;:&quot;&quot;,&quot;responsive&quot;:&quot;0&quot;},&quot;styles&quot;:[],&quot;random&quot;:&quot;3082959642787620&quot;,&quot;addClass&quot;:[]}" data-appid="image" data-type="element">
+                                                                    <div class="appMask"></div>
+                                                                    <div class="appContent">
+                                                                        <div class="image">
+                                                                            <div class="container"><!--链接不为空时加a-->
+                                                                                <a href="{ms:global.url/}/162/155/index.html"><img src="{ms:globalskin.url/}images/tpd.png" /></a>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <!--news right-->
+                                                    <div class="span6">
+                                                        <div class="boxBlock">
+                                                            <div class="elementContainer" path="column" id="el_1468379132718m29a1">
+                                                                <div class="appWrapper" data-events='' path="app" role="dragEl" id="app_5296842519446321">
+                                                                    <div class="appMask"></div>
+                                                                    <div class="article_list">
+                                                                        <div class="container">
+                                                                            <style type="text/css">
+                                                                                .article_list_1{overflow:hidden;}.article_list_1 .appPatch,.article_list_1  .latticePad{margin-top:0}.article_list_1_list{vertical-align:middle;position:relative}.article_list_1_list a{overflow:hidden;text-overflow:ellipsis;white-space:nowrap;display:block;margin-right:70px}.article_list_1_list time{position:absolute;top:50%;right:0;margin-top:-12px}
+                                                                            </style>
+                                                                            <div class="article_list_1">
+                                                                                <div class="con_body">
+                                                                                    <div class="appRow  list_min1200_1 list_961_1199_ list_768_960_ list_480_767_ list_max479_">
+                                                                                        <div class="appPatch">
+                                                                                            {ms:arclist typeid=156 titlelen=45 size=8}
+                                                                                            <div class="appColumn">
+                                                                                                <div class="latticePad">
+                                                                                                    <div class="article_list_list article_list_1_list">
+                                                                                                        <a class="article_list_title clearfix" href="[field.link/]" target="_blank">
+                                                                                                            <span>[field.title/]</span>
+                                                                                                            <time class="article_list_time fr">
+                                                                                                                [field.date fmt=yyyy-MM-dd/]
+                                                                                                            </time>
+                                                                                                        </a>
+                                                                                                    </div>
+                                                                                                </div>
+                                                                                            </div>
+                                                                                            {/ms:arclist}
+                                                                                        </div>
+
+                                                                                    </div>
+                                                                                </div>
+
+                                                                            </div>
+                                                                            <script>
+                                                                                ;
+                                                                                (function ($) {
+                                                                                    var id = 'app_5296842519446321',
+                                                                                        article_css = 'http://article.app.xiangzhan.com/static/css/article.css',
+                                                                                        appOptions ={"showAppTitle":"0","appTitle":"\u5185\u5bb9\u5217\u8868","constant":0,"size":"9","href":"\/p-39.html","hrefName":"\u516c\u53f8\u65b0\u95fb\u8be6\u60c5\u9875","loadText":"\u52a0\u8f7d\u66f4\u591a","proportion":1,"detailText":"\u67e5\u770b\u8be6\u60c5","moreText":"\u66f4\u591a","appoint":"1","appointId":"578463a1f3e9f4175d8b4570","appointName":"\u516c\u53f8\u65b0\u95fb","showPage":0,"order":"time desc","recommend":"1","news":0,"hot":0,"moreLink":"","openWay":"1","slide":"0","slideTime":"2000","slideSize":"1","screenAttr":"","tagScreening":"","userScreening":0,"InfiniteLoad":0,"loadMode":0,"noMoreText":"\u6ca1\u6709\u66f4\u591a\u4e86","events":"","showapp":"","setstyle":"true","loginUid":null,"websiteId":"577e0e36f3e9f4570a8b456f","page":1,"pageId":"30"},
+                                                                                        template = 'article_list_1';//版式编码
+                                                                                    appReady[id] = {
+                                                                                        resources: [article_css],
+                                                                                        onReady: function () {
+                                                                                            var container = $('#' + id + ' div.con_body:first');
+
+                                                                                            container.infiniteLoad({
+                                                                                                addClass:[],
+                                                                                                id:id,
+                                                                                                page:2,
+                                                                                                requestData:{
+                                                                                                    options: {"styles":{"template":"1"},"options":{"showAppTitle":"0","appTitle":"\u5185\u5bb9\u5217\u8868","constant":0,"size":"9","href":"\/p-39.html","hrefName":"\u516c\u53f8\u65b0\u95fb\u8be6\u60c5\u9875","loadText":"\u52a0\u8f7d\u66f4\u591a","proportion":1,"detailText":"\u67e5\u770b\u8be6\u60c5","moreText":"\u66f4\u591a","appoint":"1","appointId":"578463a1f3e9f4175d8b4570","appointName":"\u516c\u53f8\u65b0\u95fb","showPage":0,"order":"time desc","recommend":"1","news":0,"hot":0,"moreLink":"","openWay":"1","slide":"0","slideTime":"2000","slideSize":"1","screenAttr":"","tagScreening":"","userScreening":0,"InfiniteLoad":0,"loadMode":0,"noMoreText":"\u6ca1\u6709\u66f4\u591a\u4e86","events":"","showapp":"","setstyle":"true"},"appTempId":5296842519446321},
+                                                                                                    getParams: [],
+                                                                                                    pageId: '30',
+                                                                                                    template:template
+                                                                                                },
+                                                                                                requestUrl:'/appmodule/article/ajax/getArticleList2',
+                                                                                                pageNum:'2',
+                                                                                                noMoreText:appOptions.noMoreText,
+                                                                                                InfiniteLoad:appOptions.InfiniteLoad,
+                                                                                                loadMode:appOptions.loadMode
+                                                                                            });
+
+                                                                                        }
+                                                                                    };
+                                                                                })(jQuery);
+                                                                            </script>
+                                                                        </div><script>
+                                                                        ;(function($){
+                                                                            appInit("app_5296842519446321",{});
+                                                                        })(jQuery);
+                                                                    </script>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div> <!--end row-->
+                                            <!--VIEW MORE-->
+                                            <div class="appWrapper" data-events="" data-content="html" role="dragEl" path="app" id="app_6718046186742537" data-data="" data-appid="button" data-type="element" setstyle="true">
+                                                <div class="appMask"></div>
+                                                <div class="appContent">
+                                                    <div class="button">
+                                                        <div class="container"><a href="/p-38.html" class="btn">VIEW MORE</a></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div> <!--end news main-->
+                    </div>   <!--end mainContainer-->
+                </div>
+            </div>  <!--main-->
+
+            <!--footer-->
+            {ms:include filename=footer.htm/}
+        </div>  <!--end container-->
+    </div>
+</div>   <!--end layout-->
+</body>
+
+</html>
