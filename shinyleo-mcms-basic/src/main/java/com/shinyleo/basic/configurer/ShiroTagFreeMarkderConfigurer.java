@@ -9,10 +9,10 @@ import java.io.IOException;
 /**
  * Created by shinyleo on 17/7/20.
  */
-public class ShiroTagFreeMarkderConfigurer /* extends FreeMarkerConfigurer*/ {
-    //@Override
+public class ShiroTagFreeMarkderConfigurer  extends FreeMarkerConfigurer {
+    @Override
     public void afterPropertiesSet() throws IOException, TemplateException {
-      /*  super.afterPropertiesSet();
-        this.getConfiguration().setSharedVariable("shiro", new ShiroTags());*/
+        super.afterPropertiesSet();
+        this.getConfiguration().setSharedVariable("shiro", new ShiroTags());
     }
 }
