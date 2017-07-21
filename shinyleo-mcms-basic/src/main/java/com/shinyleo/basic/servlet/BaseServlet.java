@@ -1,5 +1,27 @@
 package com.shinyleo.basic.servlet;
 
+
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.PrintWriter;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.Map;
+import java.util.ResourceBundle;
+
+import javax.servlet.ServletContext;
+import javax.servlet.ServletException;
+import javax.servlet.http.Cookie;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import org.apache.log4j.Logger;
+import org.springframework.web.context.support.WebApplicationContextUtils;
+
+import com.alibaba.fastjson.JSONObject;
 import com.shinyleo.base.constant.Const;
 import com.shinyleo.base.constant.e.BaseEnum;
 import com.shinyleo.base.constant.e.BaseSessionEnum;
@@ -9,30 +31,16 @@ import com.shinyleo.basic.constant.e.CookieConstEnum;
 import com.shinyleo.basic.constant.e.SessionConstEnum;
 import com.shinyleo.basic.entity.AppEntity;
 import com.shinyleo.util.StringUtil;
-import com.alibaba.fastjson.JSONObject;
-import org.apache.log4j.Logger;
-import org.springframework.web.context.support.WebApplicationContextUtils;
 
-import javax.servlet.ServletContext;
-import javax.servlet.ServletException;
-import javax.servlet.http.Cookie;
-import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-import java.io.*;
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.Map;
-import java.util.ResourceBundle;
 
 /**
  * Created by shinyleo on 17/7/20.
  */
-public class BaseServlet extends HttpServlet {
+public abstract class BaseServlet extends HttpServlet {
 
     /*
-	 * log4j日志记录
-	 */
+      * log4j日志记录
+      */
     public Logger logger = Logger.getLogger(this.getClass());
 
     /**
@@ -258,7 +266,7 @@ public class BaseServlet extends HttpServlet {
      * @param key 键SessionConst里面定义
      * @param obj 对象
      */
-    protected void setSession(HttpServletRequest request, SessionConstEnum key, Object obj) {
+    protected void setSession(HttpServletRequest request,SessionConstEnum key,Object obj) {
         if (StringUtil.isBlank(obj.toString())) {
             return;
         }
@@ -280,7 +288,7 @@ public class BaseServlet extends HttpServlet {
      * @param key 键SessionConst里面定义
      * @param obj 对象
      */
-    protected void setSession(HttpServletRequest request, BaseSessionEnum key, Object obj) {
+    protected void setSession(HttpServletRequest request,BaseSessionEnum key,Object obj) {
         if (StringUtil.isBlank(obj.toString())) {
             return;
         }
@@ -314,7 +322,7 @@ public class BaseServlet extends HttpServlet {
      * @param key 枚举类中的值
      * @param value 存储对象
      */
-    protected void setCookie(HttpServletRequest request, HttpServletResponse response, CookieConstEnum key, Object value) {
+    protected void setCookie(HttpServletRequest request,HttpServletResponse response,CookieConstEnum key, Object value) {
         request.getSession().setAttribute(key.toString(), value);
         Cookie cookie = new Cookie(key.name(), (String) value);
         cookie.setPath("/");
@@ -363,7 +371,7 @@ public class BaseServlet extends HttpServlet {
      * @param flag 成功状态,true:成功、false:失败
      * @param msg 提示信息
      */
-    protected void outJson(HttpServletResponse resp, BaseEnum code, boolean flag, String msg) {
+    protected void outJson(HttpServletResponse resp,BaseEnum code, boolean flag, String msg) {
         try {
             ResultJson result = new ResultJson();
             if (code!=null) {
@@ -455,7 +463,7 @@ public class BaseServlet extends HttpServlet {
      * @param beanName 要读取的bean的名称
      * @return 返回读取的对象，获取不到返回null
      */
-    protected Object getBean(ServletContext sc, String beanName) {
+    protected Object getBean(ServletContext sc,String beanName) {
         return WebApplicationContextUtils.getWebApplicationContext(sc).getBean(beanName);
     }
 
@@ -525,7 +533,7 @@ public class BaseServlet extends HttpServlet {
      * @param appBiz  站点业务层
      * @return 返回站点实体
      */
-    protected AppEntity getApp(HttpServletRequest request, IAppBiz appBiz) {
+    protected  AppEntity getApp(HttpServletRequest request,IAppBiz appBiz) {
         //查询数据库获取域名对应Id
         AppEntity website = appBiz.getByUrl(this.getUrl(request));
         if(website!=null){

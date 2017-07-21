@@ -32,8 +32,8 @@ public class ColumnAdvice {
 		// 即切点集合是：aop.annotation包下所有类所有方法
 		// 第一个* 代表返回值类型
 		// 如果要设置多个切点可以使用 || 拼接
-		// and args(com.mingsoft.order.entity.OrderEntity
-		@Pointcut(" execution(*  com.mingsoft.basic.biz.impl.ColumnBizImpl.deleteCategory(..) ) ")
+		// and args(com.shinyleo.order.entity.OrderEntity
+		@Pointcut(" execution(*  com.shinyleo.basic.biz.impl.ColumnBizImpl.deleteCategory(..) ) ")
 		public void deleteCategory() {
 		}
 		

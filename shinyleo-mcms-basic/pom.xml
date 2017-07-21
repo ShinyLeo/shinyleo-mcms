@@ -7,7 +7,7 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
     <artifactId>shinyleo-mcms-basic</artifactId>
-    <packaging>jar</packaging>
+    <packaging>war</packaging>
     <name>shinyleo-mcms-basic Maven Webapp</name>
     <url>http://maven.apache.org</url>
 

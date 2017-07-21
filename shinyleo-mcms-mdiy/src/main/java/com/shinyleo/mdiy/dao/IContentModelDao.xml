@@ -2,7 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <!-- 表单内容模型管理持久化层配置文件 -->
-<mapper namespace="com.mingsoft.mdiy.dao.IContentModelDao">
+<mapper namespace="com.shinyleo.mdiy.dao.IContentModelDao">
 	<!-- 表字段名开始 -->
 	<sql id="column_list">
 		CM_ID,CM_TIPSNAME,CM_TABLENAME,CM_MANAGERID
@@ -10,7 +10,7 @@
 	<!-- 表字段名结束 -->
 	
 	<!-- 字段绑定开始 -->
-	<resultMap type="com.mingsoft.mdiy.entity.ContentModelEntity" id="resultMap">
+	<resultMap type="com.shinyleo.mdiy.entity.ContentModelEntity" id="resultMap">
 		<id column="CM_ID" property="cmId"></id> <!--实体字段cmId 与表中的cmId绑定 -->
 		<result column="CM_TIPSNAME" property="cmTipsName"/><!--实体字段cmTipsName 与表中的表单提示文字绑定 -->
 		<result column="CM_TABLENAME" property="cmTableName"/><!--实体字段cmTableName 与表中的表单表名绑定 -->
@@ -71,7 +71,7 @@
 	<!-- 表单列表分页查询结束 -->
 	
 	<!-- 新增表单内容模型开始 -->
-	<insert id="saveEntity" parameterType="com.mingsoft.mdiy.entity.ContentModelEntity">
+	<insert id="saveEntity" parameterType="com.shinyleo.mdiy.entity.ContentModelEntity">
 		insert into mdiy_content_model
 		<!-- 注入表字段 -->
 		<trim prefix="(" suffix=")" suffixOverrides=",">
@@ -94,7 +94,7 @@
 	<!-- 新增表单内容模型结束 -->
 	
 	<!-- 更新表单内容模型开始 -->
-	<update id="updateEntity" parameterType="com.mingsoft.mdiy.entity.ContentModelEntity">
+	<update id="updateEntity" parameterType="com.shinyleo.mdiy.entity.ContentModelEntity">
 		update mdiy_content_model
 		<set>
 			<if test="cmTipsName != null">CM_TIPSNAME=#{cmTipsName},</if>

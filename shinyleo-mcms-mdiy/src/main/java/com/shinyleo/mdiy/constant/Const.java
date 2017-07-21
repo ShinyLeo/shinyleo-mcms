@@ -10,9 +10,9 @@ public final class Const {
 	/**
 	 * action层对应的国际化资源文件
 	 */
-	public final static  ResourceBundle RESOURCES = ResourceBundle.getBundle("com.mingsoft.mdiy.resources.resources");
-	public final static  ResourceBundle BASIC_ATTRIBUTE = ResourceBundle.getBundle("com.mingsoft.mdiy.resources.search_basic_attribute");
-	public final static  ResourceBundle BASIC_FIELD = ResourceBundle.getBundle("com.mingsoft.mdiy.resources.search_basic_field");
+	public final static  ResourceBundle RESOURCES = ResourceBundle.getBundle("com.shinyleo.mdiy.resources.resources");
+	public final static  ResourceBundle BASIC_ATTRIBUTE = ResourceBundle.getBundle("com.shinyleo.mdiy.resources.search_basic_attribute");
+	public final static  ResourceBundle BASIC_FIELD = ResourceBundle.getBundle("com.shinyleo.mdiy.resources.search_basic_field");
 
 	/**
 	 * 默认系统管理员所对应的角色ID为1

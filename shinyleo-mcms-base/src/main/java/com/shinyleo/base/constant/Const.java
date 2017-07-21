@@ -33,7 +33,7 @@ public class Const {
     /**
      * action层对应的国际化资源文件
      */
-    public final static ResourceBundle RESOURCES = ResourceBundle.getBundle("com.mingsoft.base.resources.resources");
+    public final static ResourceBundle RESOURCES = ResourceBundle.getBundle("com.shinyleo.base.resources.resources");
 
 
 

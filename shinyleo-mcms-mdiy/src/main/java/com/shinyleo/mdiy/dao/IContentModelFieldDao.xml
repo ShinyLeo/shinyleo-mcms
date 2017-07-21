@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <!-- 字段管理持久化层XML配置继承IFieldDao -->
-<mapper namespace="com.mingsoft.mdiy.dao.IContentModelFieldDao">
+<mapper namespace="com.shinyleo.mdiy.dao.IContentModelFieldDao">
 	<sql id="column_list">
 		FIELD_ID,FIELD_TIPSNAME,FIELD_FIELDNAME,FIELD_TYPE,FIELD_CMID,FIELD_DEFAULT,FIELD_ISNULL,FIELD_ISSEARCH,FIELD_LENGTH
 	</sql>
 	
 	<!-- 表字段与实体属性对应，供返回实体信息时使用 -->
-	<resultMap id="resultMap" type="com.mingsoft.mdiy.entity.ContentModelFieldEntity">
+	<resultMap id="resultMap" type="com.shinyleo.mdiy.entity.ContentModelFieldEntity">
 		<id column="FIELD_ID" property="fieldId" />
 		<result column="FIELD_TIPSNAME" property="fieldTipsName" />
 		<result column="FIELD_FIELDNAME" property="fieldFieldName" />
@@ -63,7 +63,7 @@
 	<!-- 字段列表分页查询结束 -->
 	
 	<!-- 增加字段实体开始 -->
-	<insert id="saveEntity" parameterType="com.mingsoft.mdiy.entity.ContentModelFieldEntity">
+	<insert id="saveEntity" parameterType="com.shinyleo.mdiy.entity.ContentModelFieldEntity">
 		insert into mdiy_content_mode_field
 		<trim prefix="(" suffix=")" suffixOverrides=",">
 			<if test="fieldTipsName != null">FIELD_TIPSNAME,</if>
@@ -125,7 +125,7 @@
 	<!-- 通过字段名获取字段实体结束 -->
 	
 	<!-- 更新字段开始 -->
-	<update id="updateEntity" parameterType="com.mingsoft.mdiy.entity.ContentModelFieldEntity">
+	<update id="updateEntity" parameterType="com.shinyleo.mdiy.entity.ContentModelFieldEntity">
 		update mdiy_content_mode_field
 		<set>
 			<if test="fieldTipsName != null">FIELD_TIPSNAME=#{fieldTipsName},</if>

@@ -10,7 +10,7 @@ public final class Const {
     /**
      * action层对应的国际化资源文件
      */
-    public final static ResourceBundle RESOURCES = ResourceBundle.getBundle("com.mingsoft.basic.resources.resources");
+    public final static ResourceBundle RESOURCES = ResourceBundle.getBundle("com.shinyleo.basic.resources.resources");
 
     /**
      * 默认系统管理员所对应的角色ID为1

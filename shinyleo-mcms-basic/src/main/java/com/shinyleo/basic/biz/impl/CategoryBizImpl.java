@@ -201,7 +201,7 @@ public class CategoryBizImpl  extends BaseBizImpl implements ICategoryBiz {
     }
 
     /* (non-Javadoc)
-     * @see com.mingsoft.basic.biz.ICategoryBiz#queryParent(int, int, java.lang.Integer)
+     * @see com.shinyleo.basic.biz.ICategoryBiz#queryParent(int, int, java.lang.Integer)
      */
     @Override
     public List<CategoryEntity> queryParent(int appId, int modelId, Integer categoryId) {
